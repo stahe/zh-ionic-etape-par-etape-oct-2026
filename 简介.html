@@ -1,0 +1,1016 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="[Ionic] 移动框架分步入门">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-ionic-etape-par-etape-oct-2026/%E7%AE%80%E4%BB%8B.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>1. 简介 - [Ionic] 移动框架分步入门</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "[Ionic] 移动框架分步入门";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-简介" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="[Ionic] 移动框架分步入门" class="md-header__button md-logo" aria-label="[Ionic] 移动框架分步入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            [Ionic] 移动框架分步入门
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. 简介
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-ionic-etape-par-etape-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="[Ionic] 移动框架分步入门" class="md-nav__button md-logo" aria-label="[Ionic] 移动框架分步入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    [Ionic] 移动框架分步入门
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-ionic-etape-par-etape-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="%E7%AE%80%E4%BB%8B.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-ionic-在客户端服务器应用中的角色" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Ionic 在客户端/服务器应用中的角色
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-所用工具" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. 所用工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-截图" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. 截图
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-示例" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. 示例
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-文档内容" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5. 文档内容
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 搭建开发环境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ionic-%E5%85%A5%E9%97%A8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Ionic 入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%BB%84%E4%BB%B6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 组件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E8%B7%AF%E7%94%B1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 路由
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E5%85%B1%E4%BA%AB%E7%8A%B6%E6%80%81.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 异步操作与共享状态
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E5%9B%BD%E9%99%85%E5%8C%96.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 国际化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rdvmedecins-%E6%9C%8D%E5%8A%A1%E5%99%A8-%E4%B8%80%E4%B8%AA%E9%BB%91%E7%9B%92.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. RdvMedecins 服务器，一个黑盒
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E4%BF%A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 与服务器通信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E9%98%B6%E6%AE%B5%E6%80%A7%E7%BB%93%E8%AE%BA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 阶段性结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6-rdvmedecins-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84-ionic-%E5%AE%A2%E6%88%B7%E7%AB%AF.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 案例研究：RdvMedecins 应用程序的 Ionic 客户端
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E9%83%A8%E7%BD%B2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%BB%93%E8%AE%BA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E9%99%84%E5%BD%95.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 附录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-简介">1. <span style="color: #2e74b5">简介</span></h1>
+<p>本文档的 PDF 在 <a href="https://1drv.ms/b/c/f53a919f43d27eb5/IQCtMMaGtbE9TJJEragFb_mYAWz6rxA5Gcu1ERyiNAbGQIY?e=7Rl886"><u><span style="color: #0563c1">这里</span></u></a>。</p>
+<p>本文档的代码在 <a href="https://1drv.ms/u/c/f53a919f43d27eb5/IQBZapNEGvHCSqlcrnZtNKofAUUAlTJWTDxWpHLPYUVTqbc?e=UMmpMF"><u><span style="color: #0563c1">这里</span></u></a>。</p>
+<p>本文档由 Anthropic 的 AI Claude 创作。它沿用课程 <a href="https://stahe.github.io/zh-flutter-etape-par-etape-sept-2026/"><u><span style="color: #0563c1">“Flutter 移动框架分步入门</span></u></a>”的大纲、示例和案例研究，并借用课程 <a href="https://stahe.github.io/zh-angular-etape-par-etape-sept-2026/"><u><span style="color: #0563c1">“Angular 框架分步入门</span></u></a>”中的工具：</p>
+<ul>
+<li>在 <em>[Flutter]</em> 课程中，应用是一个 <strong>移动</strong>应用，使用 <em>[Dart]</em> 编写，其引擎 <em>[Flutter]</em> 自己渲染每一个像素；</li>
+<li>在 <em>[Angular]</em> 课程中，应用是一个 <strong>Web</strong>应用：HTML、CSS 和 <em>[TypeScript]</em>，由浏览器执行；</li>
+<li>在本课程中，应用二者兼备：它是一个 Web 应用，使用 <em>[Angular]</em> 和 <em>[Ionic]</em> 框架的组件编写，再由 <em>[Capacitor]</em> 工具打包成安装在手机上的 <em>[Android]</em> 应用。同样的代码无需任何修改，也可以在浏览器中运行。</li>
+</ul>
+<p>不过，服务器保持不变：它仍是前面课程中的 JSON <em>[RdvMedecins]</em> 服务器，使用 <em>[NestJS]</em> 编写。应用的屏幕也是其他课程的读者已经熟悉的那些（带验证码的登录、医生的日程、预约窗口、患者门户、医生和客户管理、账户创建、法语和英语），只是针对手机屏幕做了调整。</p>
+<p>本文档沿用与前几篇相同的结构：先是大量简短的示例，每个示例聚焦 <em>[Ionic]</em> 或 <em>[Angular]</em> 的一个概念，然后是完整的案例研究，即应用 <em>[RdvMedecins]</em> 的 <em>[Ionic]</em> 客户端，其所有文件都有注释。这 25 个示例的编号相同，显示的屏幕也与 <em>[Flutter]</em> 课程（以及 <em>[React]</em> 和 <em>[Vue.js]</em> 课程）中的一致：熟悉其中某个框架的读者会认出相同的示例，只不过是以 <em>[Ionic]</em> 和 <em>[Angular]</em> 的风格编写的。每个示例最后还会与 <em>[Flutter]</em> 做一番比较。</p>
+<p>假定读者已熟悉 <em>[TypeScript]</em> 语言和 <em>[Angular]</em> 框架的基础知识：这些内容见课程 <a href="https://stahe.github.io/zh-typescript-sept-2026/"><u><span style="color: #0563c1">“通过示例入门 TypeScript 语言”</span></u></a>和 <a href="https://stahe.github.io/zh-angular-etape-par-etape-sept-2026/"><u><span style="color: #0563c1">“Angular 框架分步入门</span></u></a>”。不过，所用到的 <em>[Angular]</em> 概念（信号、模板、依赖注入、路由器、响应式表单等）会在各示例中根据需要进行复习。</p>
+<h2 id="11-ionic-在客户端服务器应用中的角色">1.1. <span style="color: #2e74b5">Ionic 在客户端/服务器应用中的角色</span></h2>
+<p>应用由两部分组成，它们之间只通过 HTTP 请求进行通信：</p>
+<p><img src="images/1000000000000AF00000042CEBEC165C.png" width="605" height="231" style="width:16cm;height:6.103cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000AF00000042CEBEC165C.png" /></p>
+<ul>
+<li>1：运行在手机上的 <em>[Ionic]</em> 应用向服务器发送 HTTP 请求，例如 <strong><em>[GET /api/schedule?doctorId=1&amp;day=2026-10-05]</em></strong>；</li>
+<li>2：服务器以 JSON 数据作为响应：即该医生当天的日程。它不生成任何页面；</li>
+<li>3：利用这些数据，<em>[Angular]</em> 更新手机屏幕。</li>
+</ul>
+<p>这正是 <em>[Flutter]</em>、<em>[React]</em>、<em>[Vue.js]</em> 和 <em>[Angular]</em> 客户端的架构：唯一的区别在于由谁来生成显示。在这一点上，<em>[Ionic]</em> 与 <em>[Flutter]</em> 恰好相反。<em>[Flutter]</em> 是一个渲染引擎：它完全不依赖浏览器，自己渲染屏幕上的每一个像素。<em>[Ionic]</em> 则相反，它本身不渲染任何内容：它是一个 <strong>Web 组件</strong>库：即新的 HTML 元素——<strong><em>[&lt;ion-button&gt;]</em></strong>、<strong><em>[&lt;ion-input&gt;]</em></strong>、<strong><em>[&lt;ion-list&gt;]</em></strong>、<strong><em>[&lt;ion-tabs&gt;]</em></strong>……，它们由 <em>[Stencil]</em> 工具（来自 <em>[Ionic]</em> 团队）创建，任何浏览器都能显示。这些组件以两种“模式”模仿手机的原生组件：<em>[md]</em> （<em>[Material Design]</em>，即 <em>[Android]</em> 的外观）和 <em>[ios]</em> （<em>[iPhone]</em> 的外观）。本课程在所有地方（包括浏览器中）都强制使用 <em>[md]</em> 模式。由于它们只是普通的 HTML 元素，<em>[Ionic]</em> 的组件可以与 <em>[Angular]</em>、<em>[React]</em> 或 <em>[Vue.js]</em> 一起使用：本课程将它们与 <em>[Angular]</em> （即 <em>[@ionic/angular]</em> 包）搭配使用。</p>
+<p>因此，应用是一个标准的 <strong>Web</strong>应用：一个 HTML 页面、一个样式表，以及由 <em>[JavaScript]</em> 代码，它们是从 <em>[TypeScript]</em> 编译而来的。将它变成 <em>[Android]</em> 应用的是 <em>[Capacitor]</em> （与 <em>[Ionic]</em> 来自同一团队）：</p>
+<ul>
+<li><em>[Capacitor]</em> 会生成一个原生的 <em>[Android]</em> 项目，其唯一的屏幕是一个 <strong>WebView</strong>：即手机上 <em>[Chrome]</em> 浏览器引擎，全屏显示，没有地址栏。编译后的 Web 应用被复制到这个项目中，WebView 在启动时加载它。对用户来说，它与任何其他应用无异：有图标、启动画面，以及 <em>[Android]</em> 的返回按钮；</li>
+<li><em>[JavaScript]</em> 代码通过 <em>[Capacitor]</em> 插件访问手机的功能（存储、相机、通知、地理定位等），这些插件充当通往原生代码的桥梁。本课程使用其中两个：<em>[@capacitor/preferences]</em>（设备上的一个小型键值存储，见示例 20）和 <em>[CapacitorHttp]</em> （由 <em>[Android]</em> 的原生代码发出的 HTTP 请求，见示例 22 至 25）；</li>
+<li>同样的代码在浏览器中运行，插件在浏览器中有 Web 版本（此时 <em>[Capacitor]</em> 的存储使用浏览器的 <em>[localStorage]</em>）。因此我们在 <em>[Chrome]</em> 中以手机尺寸、借助其开发者工具进行开发，然后再切换到 <em>[Android]</em> 上进行测试。</li>
+</ul>
+<p>应用的三个层次，以及它们各自提供的功能：</p>
+<ul>
+<li><em>[Angular]</em>：应用框架。它提供组件（一个 <em>[TypeScript]</em> 类和一个 HTML 模板）、<strong>信号</strong>（即状态，其变化会更新屏幕）、依赖注入（服务、共享状态）、路由器（每个屏幕一个地址）、表单、HTTP 客户端，以及“管道”（格式化）。<em>[Flutter]</em> 课程的读者会认出这一原则：界面是状态的函数。我们从不直接修改屏幕本身：我们修改状态，由 <em>[Angular]</em> 更新所有依赖于该状态的内容；</li>
+<li><em>[Ionic]</em>：界面组件，它们类似于移动应用的组件（工具栏、列表、字段、悬浮按钮、选项卡、警告窗口、日历等），以及移动应用的导航：一个页面栈，带有如同 <em>[Android]</em> 中的动画，返回按钮会将页面从栈中弹出；</li>
+<li><em>[Capacitor]</em>：<em>[Android]</em> 应用以及对手机的访问。</li>
+</ul>
+<p>与 <em>[Flutter]</em> 不同，与服务器通信不需要额外的包：<em>[Angular]</em> 提供了 HTTP 客户端、路由器、表单和依赖注入；<em>[JavaScript]</em> 连同 <strong><em>[Intl]</em></strong> 对象，为每种语言提供日期和数字格式化；随 <em>[RxJS]</em> 库一起包含在 <em>[Angular]</em> 中，提供异步数据流。翻译（示例 21）由一个专门为此编写的小类处理，它读取 JSON 字典。</p>
+<h2 id="12-所用工具">1.2. <span style="color: #2e74b5">所用工具</span></h2>
+<p>这些示例是使用以下工具编写和测试的（它们的安装见下一章和附录）：</p>
+<ul>
+<li><em>[Node.js]</em> 24 及其包管理器 <em>[npm]</em>：<em>[Angular CLI]</em> 22 要求 <em>[Node.js]</em> 22.22.3（或更新的 22 版本）、24.15 或更高版本，或 26 及以上版本。<em>[Node.js]</em> 还负责运行 JSON 服务器；</li>
+<li><em>[Angular CLI]</em> 22.2（<em>[ng]</em> 命令）、<em>[Angular]</em> 22.2 和 <em>[TypeScript]</em> 6.0；</li>
+<li><em>[Ionic]</em> 9.0（<em>[@ionic/angular]</em> 9.0.6 包）及其图标 <em>[ionicons]</em> 8.1；</li>
+<li><em>[Capacitor]</em> 8.5（包 <em>[@capacitor/core]</em>、<em>[@capacitor/android]</em> 和 <em>[@capacitor/cli]</em>）及其插件 <em>[@capacitor/preferences]</em> 8.0；</li>
+<li><em>[Visual Studio Code]</em> 编辑器及其扩展 <em>[Angular Language Service]</em> 和 <em>[Ionic]</em>；</li>
+<li><em>[Android Studio]</em>，用于获取 <em>[Android]</em> SDK、其 JDK 以及模拟器管理器：<em>[Android]</em> <strong>模拟器</strong> （电脑上的模拟手机），或连接到电脑的真实 <em>[Android]</em> 手机；</li>
+<li><em>[Chrome]</em> 浏览器，用于在电脑和手机上开发和调试应用；</li>
+<li>[MySQL] 数据库管理系统 （或 <em>[MariaDB]</em>），例如 <em>[Laragon]</em> 在 <em>[Windows]</em> 下提供的那个：JSON 服务器需要它，详见介绍服务器的那一章；</li>
+<li>命令行工具 <em>[curl]</em>，用于显示原始的 HTTP 响应。</li>
+</ul>
+<p>所用的包来自两个 <em>[package.json]</em> 文件，它们所属的两个 <em>[Ionic]</em> 项目是相同的：<em>[@angular/...]</em> 22.2、<em>[@ionic/angular]</em> 9.0、<em>[ionicons]</em> 8.1、<em>[@capacitor/...]</em> 8.5、<em>[@capacitor/app]</em> 8.1、<em>[@capacitor/preferences]</em> 8.0、<em>[rxjs]</em> 7.8，以及仅用于开发的 <em>[typescript]</em> 6.0、<em>[prettier]</em> 3（代码排版）和 <em>[playwright]</em> 1.56（截图）。</p>
+<h2 id="13-截图">1.3. <span style="color: #2e74b5">截图</span></h2>
+<p>本文档中的截图是由使用 <em>[Playwright]</em> 库的程序自动生成的（来自两个 <em>[captures/]</em> 文件夹，它们属于两个 <em>[Ionic]</em> 项目）。<em>[captures/captures.mjs]</em> 程序控制一个 <em>[Chromium]</em> 浏览器（<em>[Chrome]</em> 的免费版本），其大小为 <em>[Android]</em> 手机的尺寸：412 x 892 点，每点 2.625 像素，得到 1082 x 2342 像素的图像。对于每个示例，它会运行 <em>[captures/scenarios/]</em> 文件夹中的一个“场景”：打开示例页面，像用户一样与之交互（输入文本、按下按钮），然后将屏幕保存为图像文件。</p>
+<p>因此这些是应用的真实截图，由 <em>[Chrome]</em> 引擎渲染——与手机 WebView 所用的正是同一个引擎；缺少的只有手机的状态栏（时间、电量）和屏幕键盘。读者可以自行重新生成它们（应用必须处于运行状态；见下文）：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>npx playwright install chromium
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>npm run captures
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a>node captures/captures.mjs 05 17
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>第 1 行：仅需执行一次：下载 <em>[Chromium]</em> 浏览器，供 <em>[Playwright]</em> 使用；</li>
+<li>第 2 行：重新生成 <em>[captures/images/]</em> 文件夹中的所有截图；</li>
+<li>第 3 行：仅重新生成示例 05 和 17 的截图。</li>
+</ul>
+<p>示例 22 至 25 和案例研究的截图还要求 JSON 服务器以验证码（CAPTCHA）的“测试模式”运行（见介绍服务器的那一章）。</p>
+<h2 id="14-示例">1.4. <span style="color: #2e74b5">示例</span></h2>
+<p>本文档中的代码分为三个文件夹：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>ionic-etape-par-etape-oct-2026/
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a>├── examples_ionic/            the 25 small Ionic examples (a single project)
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a>├── rdvmedecins-nestjs-json/   the RdvMedecins JSON server (the "black box")
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>└── rdvmedecins_ionic/         the Ionic client of the case study
+</code></pre></div></td></tr></table></div>
+<p>这些示例构成一个单独的项目 <em>[Ionic]</em>：一个主页、示例菜单，以及每个示例一个页面，各自位于自己的 <em>[src/app/]</em> 文件夹中（示例 01 详细介绍了该项目）：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a>examples_ionic/
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a>├── angular.json               the Angular project configuration
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a>├── capacitor.config.ts        the Capacitor configuration
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a>├── package.json               the packages and the scripts of the project
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a>├── proxy.conf.json            the relay to the JSON server (examples 22 to 25)
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a>├── captures/                  the making of the screenshots
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a>├── public/                    files delivered as is (icon, images, dictionaries)
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a>└── src/
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a>    ├── index.html             the page that hosts the application
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a>    ├── main.ts                the entry point
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a>    ├── styles.scss            the styles of the whole application
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a>    └── app/
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a>        ├── app.ts             the root component
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a>        ├── app.routes.ts      the routes: one address per example
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a>        ├── examples.ts        the list of the 25 examples
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a>        ├── home/              the menu of the examples
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a>        ├── common/            the code shared by examples 22 to 25
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>        ├── ex01-first-application/
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a>        │   ├── ex01.page.ts   the page of example 01 (its class)
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>        │   └── ex01.page.html (its template)
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a>        ├── ex02-state/
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a>        ├── ...
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a>        └── ex25-server-errors/
+</code></pre></div></td></tr></table></div>
+<p>文件夹 <em>[node_modules/]</em> （各个包）和 <em>[android/]</em> （<em>[Android]</em> 项目）并未提供：前者由 <em>[npm install]</em> 填充，后者由 <em>[Capacitor]</em> 生成。在 <em>[examples_ionic]</em> 文件夹上打开的控制台中（在 <em>[VS Code]</em> 中：Terminal 菜单 / New Terminal）：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1">1</a></span>
+<span class="normal"><a href="#__codelineno-3-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a>npm install
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a>npm start
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>第 1 行：对所有示例只需执行一次：将 <em>[package.json]</em> 所描述的包下载到 <em>[node_modules/]</em> 文件夹中；</li>
+<li>第 2 行：启动 <em>[ng serve]</em>，即 <em>[Angular]</em> 的开发服务器，地址为 <em>[http://localhost:8100]</em>。</li>
+</ul>
+<p>在 <em>[Chrome]</em> 中打开此地址：主页按章节分组列出 25 个示例；点按某个示例即可打开它，其工具栏上的返回按钮会带你回到菜单。你也可以通过地址直接进入某个示例：<em>[http://localhost:8100/ex05]</em> 即示例 05。要以手机尺寸查看应用，请打开开发者工具（F12），然后打开设备模拟栏（Ctrl+Shift+M）。只要 <em>[ng serve]</em> 在运行，每次文件更改都会立即被编译并应用到浏览器中；按 Ctrl+C 可停止它。</p>
+<p>在 <em>[Android]</em> 中，示例应用连同其 25 个示例和菜单一次性安装：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">1</a></span>
+<span class="normal"><a href="#__codelineno-4-2">2</a></span>
+<span class="normal"><a href="#__codelineno-4-3">3</a></span>
+<span class="normal"><a href="#__codelineno-4-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a>npx cap add android
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a>npx ng build
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a>npx cap sync android
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a>npx cap run android
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>第 1 行：只运行一次：创建 <em>[android/]</em> 文件夹和一个完整的 <em>[Android Studio]</em> 项目；</li>
+<li>第 2 行：将 Web 应用编译到 <em>[dist/examples_ionic/browser/]</em> 文件夹中；</li>
+<li>第 3 行：将其复制到 <em>[Android]</em> 项目中；</li>
+<li>第 4 行：构建 <em>[Android]</em> 应用，将其安装到正在运行的模拟器或已连接的手机上（如果有多个，该命令会询问使用哪一个），并启动它。</li>
+</ul>
+<p>第 2 行到第 4 行在每次代码更改后都必须重新运行。示例 01 还展示了如何在手机上启用 <em>[ng serve]</em> 的自动重新加载。</p>
+<p>示例 22 至 25 会查询 JSON 和 <em>[RdvMedecins]</em> 服务器：你需要按专门介绍它们的那一章所述，先安装并运行它们。在浏览器中，开发服务器会把请求 <em>[/api]</em> （文件 <em>[proxy.conf.json]</em>）转发给它们；在模拟器上，它们连接到地址为 <em>[http://10.0.2.2:8080]</em> 的服务器（见示例 22）。</p>
+<h2 id="15-文档内容">1.5. <span style="color: #2e74b5">文档内容</span></h2>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>章节</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>内容</b></div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0"><b>示例</b></div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Ionic 入门</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">一个 Ionic 项目（Angular + Capacitor）、Ionic 组件、状态（signal、computed、effect）、模板（@if、@for）、事件、所有字段类型、reducer、验证、响应式表单、格式化（Intl、管道）</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">01 至 09</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">组件</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">输入（input）、输出（output、model）、组合（内容投影、ng-template）、生命周期、依赖注入（服务、inject）、指令和动画、确认对话框（AlertController）</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">10 至 16</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">路由</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Angular 的路由器和 ion-router-outlet：路由、参数、带 ion-tabs 的外壳、懒加载、404 页面、守卫</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">17 和 18</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">异步操作和共享状态</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">Promise、Observable（RxJS）、定时器、防抖、过期响应、async 管道、toSignal、resource、基于信号的服务、@capacitor/preferences、深色主题</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">19 和 20</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">国际化</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">法语和英语的应用</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">21</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">RdvMedecins 服务器，一个黑盒</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">安装 JSON 服务器、其 API、curl 示例</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">-</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">与服务器交互</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">HttpClient、开发代理、服务器地址、Android 上的 CapacitorHttp、httpOnly 令牌 Cookie（由浏览器或 Android 存储）、API 访问层、服务器错误</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">22 至 25</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">案例研究</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">RdvMedecins 应用的 Ionic 客户端</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">-</div></td></tr><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">部署</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">由 JSON 服务器提供服务的已编译 Web 客户端；Android 应用</div></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><div style="margin:0 0 0.5em 0">-</div></td></tr></table>
+
+<p>每个示例都附有完整的代码（逐行注释）和运行时的截图。代码本身有大量注释：这些注释是课程的一部分。</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 Anthropic 的 AI <strong>Claude</strong> 应 <strong>Serge Tahé</strong> 的请求编写，根据
+        <em>知识共享署名 – 禁止商业使用 –
+        共享 3.0 未本地化版</em>的条款向公众开放。
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

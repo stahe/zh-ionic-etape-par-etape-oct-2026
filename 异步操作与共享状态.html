@@ -1,0 +1,2011 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="[Ionic] 移动框架分步入门">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-ionic-etape-par-etape-oct-2026/%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E5%85%B1%E4%BA%AB%E7%8A%B6%E6%80%81.html">
+      
+      
+        <link rel="prev" href="%E8%B7%AF%E7%94%B1.html">
+      
+      
+        <link rel="next" href="%E5%9B%BD%E9%99%85%E5%8C%96.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>6. 异步操作与共享状态 - [Ionic] 移动框架分步入门</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "[Ionic] 移动框架分步入门";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-异步操作与共享状态" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="[Ionic] 移动框架分步入门" class="md-header__button md-logo" aria-label="[Ionic] 移动框架分步入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            [Ionic] 移动框架分步入门
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. 异步操作与共享状态
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-ionic-etape-par-etape-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="[Ionic] 移动框架分步入门" class="md-nav__button md-logo" aria-label="[Ionic] 移动框架分步入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    [Ionic] 移动框架分步入门
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-ionic-etape-par-etape-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%AE%80%E4%BB%8B.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 搭建开发环境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ionic-%E5%85%A5%E9%97%A8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Ionic 入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%BB%84%E4%BB%B6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 组件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E8%B7%AF%E7%94%B1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 路由
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 异步操作与共享状态
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E5%85%B1%E4%BA%AB%E7%8A%B6%E6%80%81.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 异步操作与共享状态
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#61-示例-19promiseobservable-与定时器" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1. 示例 19：Promise、Observable 与定时器
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.1. 示例 19：Promise、Observable 与定时器">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#611-页面" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.1.1. 页面
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#62-示例-20共享状态" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2. 示例 20：共享状态
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6.2. 示例 20：共享状态">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#621-购物车" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.1. 购物车
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#622-偏好设置" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.2. 偏好设置
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#623-组件" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.3. 组件
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#624-页面" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.4. 页面
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#625-运行" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6.2.5. 运行
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E5%9B%BD%E9%99%85%E5%8C%96.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 国际化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rdvmedecins-%E6%9C%8D%E5%8A%A1%E5%99%A8-%E4%B8%80%E4%B8%AA%E9%BB%91%E7%9B%92.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. RdvMedecins 服务器，一个黑盒
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E4%BF%A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 与服务器通信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E9%98%B6%E6%AE%B5%E6%80%A7%E7%BB%93%E8%AE%BA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 阶段性结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6-rdvmedecins-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84-ionic-%E5%AE%A2%E6%88%B7%E7%AB%AF.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 案例研究：RdvMedecins 应用程序的 Ionic 客户端
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E9%83%A8%E7%BD%B2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%BB%93%E8%AE%BA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E9%99%84%E5%BD%95.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 附录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6-异步操作与共享状态">6. <span style="color: #2e74b5">异步操作与共享状态</span></h1>
+<h2 id="61-示例-19promiseobservable-与定时器">6.1. <span style="color: #2e74b5">示例 19：Promise、Observable 与定时器</span></h2>
+<p>许多事情都发生在“稍后”：定时器的触发、按键以及服务器的响应。<em>[Ionic]</em> 应用程序为此有两种类型：</p>
+<ul>
+<li><strong><em>[Promise&lt;T&gt;]</em></strong>，即 <em>[JavaScript]</em> 的那个：稍后得到一个（ONE）值（服务器响应、在窗口中做出的选择）。关键字 <strong><em>[async]</em></strong> 和 <strong><em>[await]</em></strong> 使你可以等待它而不阻塞应用程序。这相当于 <em>[Future]</em> 在 <em>[Dart]</em> 中的对应物；</li>
+<li><strong><em>[Observable&lt;T&gt;]</em></strong>，它来自 <em>[RxJS]</em> 库，随 <em>[Angular]</em> 一起提供：一个随时间推移的值的序列（SEQUENCE）（定时器触发、按键、消息……），这些值由<strong>操作符</strong> （<strong><em>[map]</em></strong>、<strong><em>[take]</em></strong>、<strong><em>[debounceTime]</em></strong>、<strong><em>[switchMap]</em></strong>……）进行转换。这相当于 <em>[Stream]</em> 在 <em>[Dart]</em> 中的对应物。<em>[JavaScript]</em> 也有它自己的异步对应物：<strong>异步生成器</strong> （<strong><em>[async function*]</em></strong>），它们对应于 <strong><em>[async*]</em></strong> 函数（来自 <em>[Dart]</em>）。</li>
+</ul>
+<p>为了显示它们，<em>[Angular]</em> 提供了三种工具，对应于 <em>[FutureBuilder]</em> 和 <em>[StreamBuilder]</em>：<strong>管道</strong> <strong><em>[async]</em></strong>（从模板中读取的 <strong><em>[Observable]</em></strong> ）、<strong><em>[toSignal()]</em></strong> （转换为信号的 <strong><em>[Observable]</em></strong> ）和 <strong><em>[resource()]</em></strong>（转换为信号的 <strong><em>[Promise]</em></strong> ）。而对于必须在延迟之后发生的事情：<strong><em>[setTimeout]</em></strong>，或来自 <em>[RxJS]</em> 的定时器（<strong><em>[timer]</em></strong>、<strong><em>[interval]</em></strong>）。</p>
+<h3 id="611-页面">6.1.1. <span style="color: #1f4d78">页面</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">  1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">  2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">  3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">  4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">  5</a></span>
+<span class="normal"><a href="#__codelineno-0-6">  6</a></span>
+<span class="normal"><a href="#__codelineno-0-7">  7</a></span>
+<span class="normal"><a href="#__codelineno-0-8">  8</a></span>
+<span class="normal"><a href="#__codelineno-0-9">  9</a></span>
+<span class="normal"><a href="#__codelineno-0-10"> 10</a></span>
+<span class="normal"><a href="#__codelineno-0-11"> 11</a></span>
+<span class="normal"><a href="#__codelineno-0-12"> 12</a></span>
+<span class="normal"><a href="#__codelineno-0-13"> 13</a></span>
+<span class="normal"><a href="#__codelineno-0-14"> 14</a></span>
+<span class="normal"><a href="#__codelineno-0-15"> 15</a></span>
+<span class="normal"><a href="#__codelineno-0-16"> 16</a></span>
+<span class="normal"><a href="#__codelineno-0-17"> 17</a></span>
+<span class="normal"><a href="#__codelineno-0-18"> 18</a></span>
+<span class="normal"><a href="#__codelineno-0-19"> 19</a></span>
+<span class="normal"><a href="#__codelineno-0-20"> 20</a></span>
+<span class="normal"><a href="#__codelineno-0-21"> 21</a></span>
+<span class="normal"><a href="#__codelineno-0-22"> 22</a></span>
+<span class="normal"><a href="#__codelineno-0-23"> 23</a></span>
+<span class="normal"><a href="#__codelineno-0-24"> 24</a></span>
+<span class="normal"><a href="#__codelineno-0-25"> 25</a></span>
+<span class="normal"><a href="#__codelineno-0-26"> 26</a></span>
+<span class="normal"><a href="#__codelineno-0-27"> 27</a></span>
+<span class="normal"><a href="#__codelineno-0-28"> 28</a></span>
+<span class="normal"><a href="#__codelineno-0-29"> 29</a></span>
+<span class="normal"><a href="#__codelineno-0-30"> 30</a></span>
+<span class="normal"><a href="#__codelineno-0-31"> 31</a></span>
+<span class="normal"><a href="#__codelineno-0-32"> 32</a></span>
+<span class="normal"><a href="#__codelineno-0-33"> 33</a></span>
+<span class="normal"><a href="#__codelineno-0-34"> 34</a></span>
+<span class="normal"><a href="#__codelineno-0-35"> 35</a></span>
+<span class="normal"><a href="#__codelineno-0-36"> 36</a></span>
+<span class="normal"><a href="#__codelineno-0-37"> 37</a></span>
+<span class="normal"><a href="#__codelineno-0-38"> 38</a></span>
+<span class="normal"><a href="#__codelineno-0-39"> 39</a></span>
+<span class="normal"><a href="#__codelineno-0-40"> 40</a></span>
+<span class="normal"><a href="#__codelineno-0-41"> 41</a></span>
+<span class="normal"><a href="#__codelineno-0-42"> 42</a></span>
+<span class="normal"><a href="#__codelineno-0-43"> 43</a></span>
+<span class="normal"><a href="#__codelineno-0-44"> 44</a></span>
+<span class="normal"><a href="#__codelineno-0-45"> 45</a></span>
+<span class="normal"><a href="#__codelineno-0-46"> 46</a></span>
+<span class="normal"><a href="#__codelineno-0-47"> 47</a></span>
+<span class="normal"><a href="#__codelineno-0-48"> 48</a></span>
+<span class="normal"><a href="#__codelineno-0-49"> 49</a></span>
+<span class="normal"><a href="#__codelineno-0-50"> 50</a></span>
+<span class="normal"><a href="#__codelineno-0-51"> 51</a></span>
+<span class="normal"><a href="#__codelineno-0-52"> 52</a></span>
+<span class="normal"><a href="#__codelineno-0-53"> 53</a></span>
+<span class="normal"><a href="#__codelineno-0-54"> 54</a></span>
+<span class="normal"><a href="#__codelineno-0-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-0-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-0-57"> 57</a></span>
+<span class="normal"><a href="#__codelineno-0-58"> 58</a></span>
+<span class="normal"><a href="#__codelineno-0-59"> 59</a></span>
+<span class="normal"><a href="#__codelineno-0-60"> 60</a></span>
+<span class="normal"><a href="#__codelineno-0-61"> 61</a></span>
+<span class="normal"><a href="#__codelineno-0-62"> 62</a></span>
+<span class="normal"><a href="#__codelineno-0-63"> 63</a></span>
+<span class="normal"><a href="#__codelineno-0-64"> 64</a></span>
+<span class="normal"><a href="#__codelineno-0-65"> 65</a></span>
+<span class="normal"><a href="#__codelineno-0-66"> 66</a></span>
+<span class="normal"><a href="#__codelineno-0-67"> 67</a></span>
+<span class="normal"><a href="#__codelineno-0-68"> 68</a></span>
+<span class="normal"><a href="#__codelineno-0-69"> 69</a></span>
+<span class="normal"><a href="#__codelineno-0-70"> 70</a></span>
+<span class="normal"><a href="#__codelineno-0-71"> 71</a></span>
+<span class="normal"><a href="#__codelineno-0-72"> 72</a></span>
+<span class="normal"><a href="#__codelineno-0-73"> 73</a></span>
+<span class="normal"><a href="#__codelineno-0-74"> 74</a></span>
+<span class="normal"><a href="#__codelineno-0-75"> 75</a></span>
+<span class="normal"><a href="#__codelineno-0-76"> 76</a></span>
+<span class="normal"><a href="#__codelineno-0-77"> 77</a></span>
+<span class="normal"><a href="#__codelineno-0-78"> 78</a></span>
+<span class="normal"><a href="#__codelineno-0-79"> 79</a></span>
+<span class="normal"><a href="#__codelineno-0-80"> 80</a></span>
+<span class="normal"><a href="#__codelineno-0-81"> 81</a></span>
+<span class="normal"><a href="#__codelineno-0-82"> 82</a></span>
+<span class="normal"><a href="#__codelineno-0-83"> 83</a></span>
+<span class="normal"><a href="#__codelineno-0-84"> 84</a></span>
+<span class="normal"><a href="#__codelineno-0-85"> 85</a></span>
+<span class="normal"><a href="#__codelineno-0-86"> 86</a></span>
+<span class="normal"><a href="#__codelineno-0-87"> 87</a></span>
+<span class="normal"><a href="#__codelineno-0-88"> 88</a></span>
+<span class="normal"><a href="#__codelineno-0-89"> 89</a></span>
+<span class="normal"><a href="#__codelineno-0-90"> 90</a></span>
+<span class="normal"><a href="#__codelineno-0-91"> 91</a></span>
+<span class="normal"><a href="#__codelineno-0-92"> 92</a></span>
+<span class="normal"><a href="#__codelineno-0-93"> 93</a></span>
+<span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
+<span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-0-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-0-100">100</a></span>
+<span class="normal"><a href="#__codelineno-0-101">101</a></span>
+<span class="normal"><a href="#__codelineno-0-102">102</a></span>
+<span class="normal"><a href="#__codelineno-0-103">103</a></span>
+<span class="normal"><a href="#__codelineno-0-104">104</a></span>
+<span class="normal"><a href="#__codelineno-0-105">105</a></span>
+<span class="normal"><a href="#__codelineno-0-106">106</a></span>
+<span class="normal"><a href="#__codelineno-0-107">107</a></span>
+<span class="normal"><a href="#__codelineno-0-108">108</a></span>
+<span class="normal"><a href="#__codelineno-0-109">109</a></span>
+<span class="normal"><a href="#__codelineno-0-110">110</a></span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span>
+<span class="normal"><a href="#__codelineno-0-112">112</a></span>
+<span class="normal"><a href="#__codelineno-0-113">113</a></span>
+<span class="normal"><a href="#__codelineno-0-114">114</a></span>
+<span class="normal"><a href="#__codelineno-0-115">115</a></span>
+<span class="normal"><a href="#__codelineno-0-116">116</a></span>
+<span class="normal"><a href="#__codelineno-0-117">117</a></span>
+<span class="normal"><a href="#__codelineno-0-118">118</a></span>
+<span class="normal"><a href="#__codelineno-0-119">119</a></span>
+<span class="normal"><a href="#__codelineno-0-120">120</a></span>
+<span class="normal"><a href="#__codelineno-0-121">121</a></span>
+<span class="normal"><a href="#__codelineno-0-122">122</a></span>
+<span class="normal"><a href="#__codelineno-0-123">123</a></span>
+<span class="normal"><a href="#__codelineno-0-124">124</a></span>
+<span class="normal"><a href="#__codelineno-0-125">125</a></span>
+<span class="normal"><a href="#__codelineno-0-126">126</a></span>
+<span class="normal"><a href="#__codelineno-0-127">127</a></span>
+<span class="normal"><a href="#__codelineno-0-128">128</a></span>
+<span class="normal"><a href="#__codelineno-0-129">129</a></span>
+<span class="normal"><a href="#__codelineno-0-130">130</a></span>
+<span class="normal"><a href="#__codelineno-0-131">131</a></span>
+<span class="normal"><a href="#__codelineno-0-132">132</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="c1">// src/app/ex19-asynchronous/ex19.page.ts - promise、observable、定时器</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1">// -------------------------------------------------------------------------</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1">// 许多事情都发生在“稍后”：定时器的触发、</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1">// 按键、服务器的响应。有两种类型可用：</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1">//   - Promise（JavaScript）：稍后得到一个（ONE）值（服务器的</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1">//     响应）；用 async / await 等待它；</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1">//   - Observable（RxJS 库，随 Angular 一起提供）：一个随时间推移的值的</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1">//     序列（SEQUENCE）（定时器触发、按键……），我们用</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1">//     “操作符”（map、take、debounceTime、switchMap……）转换它。</span>
+<a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="c1">// 为了显示它们，Angular 提供了 async 管道（模板中的 Observable）、</span>
+<a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1">// toSignal()（把 Observable 变成信号）和 resource()（把</span>
+<a id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="c1">// Promise 变成信号）。</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-0-15" name="__codelineno-0-15"></a>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">AsyncPipe</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/common'</span><span class="p">;</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="nx">resource</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/core'</span><span class="p">;</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">takeUntilDestroyed</span><span class="p">,</span><span class="w"> </span><span class="nx">toSignal</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/core/rxjs-interop'</span><span class="p">;</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">  </span><span class="nx">IonBackButton</span><span class="p">,</span><span class="w"> </span><span class="nx">IonButtons</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCard</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardContent</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardHeader</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardSubtitle</span><span class="p">,</span><span class="w"> </span><span class="nx">IonContent</span><span class="p">,</span><span class="w"> </span><span class="nx">IonHeader</span><span class="p">,</span><span class="w"> </span><span class="nx">IonInput</span><span class="p">,</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">  </span><span class="nx">IonNote</span><span class="p">,</span><span class="w"> </span><span class="nx">IonTitle</span><span class="p">,</span><span class="w"> </span><span class="nx">IonToolbar</span><span class="p">,</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@ionic/angular'</span><span class="p">;</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">debounceTime</span><span class="p">,</span><span class="w"> </span><span class="nx">finalize</span><span class="p">,</span><span class="w"> </span><span class="kr">from</span><span class="p">,</span><span class="w"> </span><span class="nx">map</span><span class="p">,</span><span class="w"> </span><span class="nx">Observable</span><span class="p">,</span><span class="w"> </span><span class="k">of</span><span class="p">,</span><span class="w"> </span><span class="nx">Subject</span><span class="p">,</span><span class="w"> </span><span class="nx">switchMap</span><span class="p">,</span><span class="w"> </span><span class="nx">take</span><span class="p">,</span><span class="w"> </span><span class="nx">tap</span><span class="p">,</span><span class="w"> </span><span class="nx">timer</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'rxjs'</span><span class="p">;</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="kd">const</span><span class="w"> </span><span class="nx">doctors</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="s1">'Marie PELISSIER'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Paul TATOU'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Sophie DUPONT'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Jacques DURAND'</span><span class="p">,</span><span class="w"> </span><span class="s1">'Martine PELLETIER'</span><span class="p">];</span>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="c1">// 以 Promise 形式出现的定时器：它在 ms 毫秒之后结束</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="kd">function</span><span class="w"> </span><span class="nx">wait</span><span class="p">(</span><span class="nx">ms</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Promise</span><span class="p">((</span><span class="nx">resolve</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">setTimeout</span><span class="p">(</span><span class="nx">resolve</span><span class="p">,</span><span class="w"> </span><span class="nx">ms</span><span class="p">));</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="p">}</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="c1">// 一个模拟的“服务器”：响应（一个 Promise）在随机延迟之后到达</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="w"> </span><span class="nx">search</span><span class="p">(</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">  </span><span class="k">await</span><span class="w"> </span><span class="nx">wait</span><span class="p">(</span><span class="mf">200</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Math</span><span class="p">.</span><span class="nx">random</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mf">600</span><span class="p">));</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">doctors</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">m</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">().</span><span class="nx">includes</span><span class="p">(</span><span class="nx">text</span><span class="p">));</span>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="p">}</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="c1">// 1a. 一个异步生成器（ASYNCHRONOUS GENERATOR）（async function*，带星号）：每个</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="c1">// yield 都会向遍历它的一方（for await...of）发送（SENDS）一个值</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="k">async</span><span class="w"> </span><span class="kd">function</span><span class="o">*</span><span class="w"> </span><span class="nx">countdown</span><span class="p">(</span><span class="nx">start</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">AsyncGenerator</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">let</span><span class="w"> </span><span class="nx">remaining</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">start</span><span class="p">;</span><span class="w"> </span><span class="nx">remaining</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0</span><span class="p">;</span><span class="w"> </span><span class="nx">remaining</span><span class="o">--</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">    </span><span class="k">yield</span><span class="w"> </span><span class="nx">remaining</span><span class="p">;</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">remaining</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">wait</span><span class="p">(</span><span class="mf">1000</span><span class="p">);</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="p">}</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="c1">// “15:30:45”</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="kd">const</span><span class="w"> </span><span class="nx">currentTime</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nb">Date</span><span class="p">().</span><span class="nx">toTimeString</span><span class="p">().</span><span class="nx">substring</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">8</span><span class="p">);</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="kd">@Component</span><span class="p">({</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="s1">'app-ex19'</span><span class="p">,</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">    </span><span class="nx">AsyncPipe</span><span class="p">,</span><span class="w"> </span><span class="nx">IonHeader</span><span class="p">,</span><span class="w"> </span><span class="nx">IonToolbar</span><span class="p">,</span><span class="w"> </span><span class="nx">IonButtons</span><span class="p">,</span><span class="w"> </span><span class="nx">IonBackButton</span><span class="p">,</span><span class="w"> </span><span class="nx">IonTitle</span><span class="p">,</span><span class="w"> </span><span class="nx">IonContent</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCard</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardHeader</span><span class="p">,</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">    </span><span class="nx">IonCardSubtitle</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardContent</span><span class="p">,</span><span class="w"> </span><span class="nx">IonInput</span><span class="p">,</span><span class="w"> </span><span class="nx">IonNote</span><span class="p">,</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">  </span><span class="nx">templateUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">'./ex19.page.html'</span><span class="p">,</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">  </span><span class="nx">styles</span><span class="o">:</span><span class="w"> </span><span class="sb">`</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sb">    .number { font-size: 2em; color: var(--ion-text-color); }</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sb">    .log { font-size: 12px; }</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sb">  `</span><span class="p">,</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="p">})</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">Ex19Page</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">log</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signal</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">([]);</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">  </span><span class="c1">// 1a. 生成器，被 from() 转换为 Observable；模板</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">  </span><span class="c1">// 用 async 管道显示它。只在字段中创建一次（ONCE）</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">countdown$</span><span class="o">:</span><span class="w"> </span><span class="kt">Observable</span><span class="o">&lt;</span><span class="kt">number</span><span class="o">&gt;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kr">from</span><span class="p">(</span><span class="nx">countdown</span><span class="p">(</span><span class="mf">20</span><span class="p">));</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">  </span><span class="c1">// 1b. 同样的倒计时，使用 RxJS 操作符：timer(0, 1000)</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">  </span><span class="c1">// 每秒发出 0、1、2……；take(21) 在 21 个值之后停止；</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">  </span><span class="c1">// map 转换这些值（0 -&gt; 20，1 -&gt; 19……）。toSignal：一个信号，其值是</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">  </span><span class="c1">// 最后收到的值（在第一个值之前为 undefined）</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">countdown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">toSignal</span><span class="p">(</span><span class="nx">timer</span><span class="p">(</span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="mf">1000</span><span class="p">).</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">take</span><span class="p">(</span><span class="mf">21</span><span class="p">),</span><span class="w"> </span><span class="nx">map</span><span class="p">((</span><span class="nx">i</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="mf">20</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">i</span><span class="p">)));</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="w">  </span><span class="c1">// 3. 一个在一秒后完成的 Promise，随后是 resource()：</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="w">  </span><span class="c1">// 一个带有信号的对象（isLoading()、hasValue()、value()、error()……）</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">message</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">resource</span><span class="p">({</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="w">    </span><span class="nx">loader</span><span class="o">:</span><span class="w"> </span><span class="kt">async</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">      </span><span class="k">await</span><span class="w"> </span><span class="nx">wait</span><span class="p">(</span><span class="mf">1000</span><span class="p">);</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="s1">'three (one second later)'</span><span class="p">;</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="w">    </span><span class="p">},</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">  </span><span class="p">});</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="w">  </span><span class="c1">// 2. 边输入边搜索：Subject 是一个 Observable，我们自己</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="w">  </span><span class="c1">// 向其中推入（PUSH）值（next）：这里是每一次按键</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">keystrokes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">Subject</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">results</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signal</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">([]);</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">keystrokes</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="w">      </span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="w">        </span><span class="c1">// 防抖（DEBOUNCE）：只有在 400 毫秒内没有</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="w">        </span><span class="c1">// 新的按键之后，才会传递一个值；间隔更近的按键会被忘掉</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="w">        </span><span class="nx">debounceTime</span><span class="p">(</span><span class="mf">400</span><span class="p">),</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">        </span><span class="nx">map</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">trim</span><span class="p">().</span><span class="nx">toLowerCase</span><span class="p">()),</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="w">        </span><span class="c1">// switchMap：每个文本都会启动一次搜索（一个 Observable）；</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">        </span><span class="c1">// 新的（NEW）搜索会放弃（ABANDONS）前一次搜索，其响应将</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">        </span><span class="c1">// 永远不会被传递：不会有“过期”响应</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="w">        </span><span class="nx">switchMap</span><span class="p">((</span><span class="nx">text</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">launch</span><span class="p">(</span><span class="nx">text</span><span class="p">)),</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="w">        </span><span class="c1">// 订阅在页面被销毁时结束</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="w">        </span><span class="nx">takeUntilDestroyed</span><span class="p">(),</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="w">      </span><span class="p">)</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="w">      </span><span class="p">.</span><span class="nx">subscribe</span><span class="p">((</span><span class="nx">found</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">results</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">found</span><span class="p">));</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">trace</span><span class="p">(</span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">log</span><span class="p">.</span><span class="nx">update</span><span class="p">((</span><span class="nx">lines</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">[...</span><span class="nx">lines</span><span class="p">,</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="nx">currentTime</span><span class="p">()</span><span class="si">}</span><span class="sb"> </span><span class="si">${</span><span class="nx">message</span><span class="si">}</span><span class="sb">`</span><span class="p">]);</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="w">  </span><span class="c1">// 每次按键时调用</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="w">  </span><span class="nx">input</span><span class="p">(</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">null</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">keystrokes</span><span class="p">.</span><span class="nx">next</span><span class="p">(</span><span class="nx">text</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="s1">''</span><span class="p">);</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a>
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">launch</span><span class="p">(</span><span class="nx">text</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Observable</span><span class="o">&lt;</span><span class="kt">string</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="w">    </span><span class="c1">// 少于两个字母：不搜索，没有结果</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">text</span><span class="p">.</span><span class="nx">length</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">2</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="w">      </span><span class="k">return</span><span class="w"> </span><span class="k">of</span><span class="p">([]);</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="sb">`search sent: "</span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">"`</span><span class="p">);</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">received</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">;</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="w">    </span><span class="c1">// from(Promise)：一个 Observable，它发出 Promise 的值，然后完成</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kr">from</span><span class="p">(</span><span class="nx">search</span><span class="p">(</span><span class="nx">text</span><span class="p">)).</span><span class="nx">pipe</span><span class="p">(</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="w">      </span><span class="nx">tap</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">(</span><span class="nx">received</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">true</span><span class="p">)),</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a><span class="w">      </span><span class="c1">// finalize：在 Observable 完成时，或在我们取消订阅时（OR）被调用</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="w">      </span><span class="c1">// （当新的搜索到来时，switchMap 就是这样做的）</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="w">      </span><span class="nx">finalize</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="nx">received</span><span class="p">)</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">trace</span><span class="p">(</span><span class="sb">`response ignored (stale): "</span><span class="si">${</span><span class="nx">text</span><span class="si">}</span><span class="sb">"`</span><span class="p">);</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="w">      </span><span class="p">}),</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="w">    </span><span class="p">);</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-1-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-1-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-1-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-1-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-1-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-1-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-1-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-1-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-1-10">10</a></span>
+<span class="normal"><a href="#__codelineno-1-11">11</a></span>
+<span class="normal"><a href="#__codelineno-1-12">12</a></span>
+<span class="normal"><a href="#__codelineno-1-13">13</a></span>
+<span class="normal"><a href="#__codelineno-1-14">14</a></span>
+<span class="normal"><a href="#__codelineno-1-15">15</a></span>
+<span class="normal"><a href="#__codelineno-1-16">16</a></span>
+<span class="normal"><a href="#__codelineno-1-17">17</a></span>
+<span class="normal"><a href="#__codelineno-1-18">18</a></span>
+<span class="normal"><a href="#__codelineno-1-19">19</a></span>
+<span class="normal"><a href="#__codelineno-1-20">20</a></span>
+<span class="normal"><a href="#__codelineno-1-21">21</a></span>
+<span class="normal"><a href="#__codelineno-1-22">22</a></span>
+<span class="normal"><a href="#__codelineno-1-23">23</a></span>
+<span class="normal"><a href="#__codelineno-1-24">24</a></span>
+<span class="normal"><a href="#__codelineno-1-25">25</a></span>
+<span class="normal"><a href="#__codelineno-1-26">26</a></span>
+<span class="normal"><a href="#__codelineno-1-27">27</a></span>
+<span class="normal"><a href="#__codelineno-1-28">28</a></span>
+<span class="normal"><a href="#__codelineno-1-29">29</a></span>
+<span class="normal"><a href="#__codelineno-1-30">30</a></span>
+<span class="normal"><a href="#__codelineno-1-31">31</a></span>
+<span class="normal"><a href="#__codelineno-1-32">32</a></span>
+<span class="normal"><a href="#__codelineno-1-33">33</a></span>
+<span class="normal"><a href="#__codelineno-1-34">34</a></span>
+<span class="normal"><a href="#__codelineno-1-35">35</a></span>
+<span class="normal"><a href="#__codelineno-1-36">36</a></span>
+<span class="normal"><a href="#__codelineno-1-37">37</a></span>
+<span class="normal"><a href="#__codelineno-1-38">38</a></span>
+<span class="normal"><a href="#__codelineno-1-39">39</a></span>
+<span class="normal"><a href="#__codelineno-1-40">40</a></span>
+<span class="normal"><a href="#__codelineno-1-41">41</a></span>
+<span class="normal"><a href="#__codelineno-1-42">42</a></span>
+<span class="normal"><a href="#__codelineno-1-43">43</a></span>
+<span class="normal"><a href="#__codelineno-1-44">44</a></span>
+<span class="normal"><a href="#__codelineno-1-45">45</a></span>
+<span class="normal"><a href="#__codelineno-1-46">46</a></span>
+<span class="normal"><a href="#__codelineno-1-47">47</a></span>
+<span class="normal"><a href="#__codelineno-1-48">48</a></span>
+<span class="normal"><a href="#__codelineno-1-49">49</a></span>
+<span class="normal"><a href="#__codelineno-1-50">50</a></span>
+<span class="normal"><a href="#__codelineno-1-51">51</a></span>
+<span class="normal"><a href="#__codelineno-1-52">52</a></span>
+<span class="normal"><a href="#__codelineno-1-53">53</a></span>
+<span class="normal"><a href="#__codelineno-1-54">54</a></span>
+<span class="normal"><a href="#__codelineno-1-55">55</a></span>
+<span class="normal"><a href="#__codelineno-1-56">56</a></span>
+<span class="normal"><a href="#__codelineno-1-57">57</a></span>
+<span class="normal"><a href="#__codelineno-1-58">58</a></span>
+<span class="normal"><a href="#__codelineno-1-59">59</a></span>
+<span class="normal"><a href="#__codelineno-1-60">60</a></span>
+<span class="normal"><a href="#__codelineno-1-61">61</a></span>
+<span class="normal"><a href="#__codelineno-1-62">62</a></span>
+<span class="normal"><a href="#__codelineno-1-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="cm">&lt;!-- ======================================================================</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="cm">     ex19.page.html - promises, observables and timers</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="cm">     ====================================================================== --&gt;</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4"></a>
+<a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="p">&lt;</span><span class="nt">ion-header</span><span class="p">&gt;</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6"></a>  <span class="p">&lt;</span><span class="nt">ion-toolbar</span> <span class="na">color</span><span class="o">=</span><span class="s">"primary"</span><span class="p">&gt;</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="p">&lt;</span><span class="nt">ion-buttons</span> <span class="na">slot</span><span class="o">=</span><span class="s">"start"</span><span class="p">&gt;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8"></a>      <span class="p">&lt;</span><span class="nt">ion-back-button</span> <span class="na">defaultHref</span><span class="o">=</span><span class="s">"/"</span> <span class="p">/&gt;</span>
+<a id="__codelineno-1-9" name="__codelineno-1-9"></a>    <span class="p">&lt;/</span><span class="nt">ion-buttons</span><span class="p">&gt;</span>
+<a id="__codelineno-1-10" name="__codelineno-1-10"></a>    <span class="p">&lt;</span><span class="nt">ion-title</span><span class="p">&gt;</span>Example 19 - asynchrony<span class="p">&lt;/</span><span class="nt">ion-title</span><span class="p">&gt;</span>
+<a id="__codelineno-1-11" name="__codelineno-1-11"></a>  <span class="p">&lt;/</span><span class="nt">ion-toolbar</span><span class="p">&gt;</span>
+<a id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="p">&lt;/</span><span class="nt">ion-header</span><span class="p">&gt;</span>
+<a id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="p">&lt;</span><span class="nt">ion-content</span> <span class="na">class</span><span class="o">=</span><span class="s">"ion-padding"</span><span class="p">&gt;</span>
+<a id="__codelineno-1-15" name="__codelineno-1-15"></a>  <span class="p">&lt;</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+<a id="__codelineno-1-16" name="__codelineno-1-16"></a>    <span class="p">&lt;</span><span class="nt">ion-card-header</span><span class="p">&gt;</span>
+<a id="__codelineno-1-17" name="__codelineno-1-17"></a>      <span class="p">&lt;</span><span class="nt">ion-card-subtitle</span><span class="p">&gt;</span>Two countdowns (Observables)<span class="p">&lt;/</span><span class="nt">ion-card-subtitle</span><span class="p">&gt;</span>
+<a id="__codelineno-1-18" name="__codelineno-1-18"></a>    <span class="p">&lt;/</span><span class="nt">ion-card-header</span><span class="p">&gt;</span>
+<a id="__codelineno-1-19" name="__codelineno-1-19"></a>    <span class="p">&lt;</span><span class="nt">ion-card-content</span><span class="p">&gt;</span>
+<a id="__codelineno-1-20" name="__codelineno-1-20"></a>      <span class="cm">&lt;!-- the async pipe subscribes to the Observable, displays each new</span>
+<a id="__codelineno-1-21" name="__codelineno-1-21"></a><span class="cm">           value, and unsubscribes when the page disappears; it is null</span>
+<a id="__codelineno-1-22" name="__codelineno-1-22"></a><span class="cm">           before the first value. @let: a template variable --&gt;</span>
+<a id="__codelineno-1-23" name="__codelineno-1-23"></a>      @let n = countdown$ | async;
+<a id="__codelineno-1-24" name="__codelineno-1-24"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>async function* and async pipe: <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"number"</span><span class="p">&gt;</span>{{ n ?? '...' }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-1-25" name="__codelineno-1-25"></a>      <span class="cm">&lt;!-- 信号：在第一个值之前为 undefined --&gt;</span>
+<a id="__codelineno-1-26" name="__codelineno-1-26"></a>      <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>RxJS and toSignal(): <span class="p">&lt;</span><span class="nt">span</span> <span class="na">class</span><span class="o">=</span><span class="s">"number"</span><span class="p">&gt;</span>{{ countdown() ?? '...' }}<span class="p">&lt;/</span><span class="nt">span</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-1-27" name="__codelineno-1-27"></a>    <span class="p">&lt;/</span><span class="nt">ion-card-content</span><span class="p">&gt;</span>
+<a id="__codelineno-1-28" name="__codelineno-1-28"></a>  <span class="p">&lt;/</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+<a id="__codelineno-1-29" name="__codelineno-1-29"></a>
+<a id="__codelineno-1-30" name="__codelineno-1-30"></a>  <span class="p">&lt;</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+<a id="__codelineno-1-31" name="__codelineno-1-31"></a>    <span class="p">&lt;</span><span class="nt">ion-card-header</span><span class="p">&gt;</span>
+<a id="__codelineno-1-32" name="__codelineno-1-32"></a>      <span class="p">&lt;</span><span class="nt">ion-card-subtitle</span><span class="p">&gt;</span>A search as you type (debounce, stale responses)<span class="p">&lt;/</span><span class="nt">ion-card-subtitle</span><span class="p">&gt;</span>
+<a id="__codelineno-1-33" name="__codelineno-1-33"></a>    <span class="p">&lt;/</span><span class="nt">ion-card-header</span><span class="p">&gt;</span>
+<a id="__codelineno-1-34" name="__codelineno-1-34"></a>    <span class="p">&lt;</span><span class="nt">ion-card-content</span><span class="p">&gt;</span>
+<a id="__codelineno-1-35" name="__codelineno-1-35"></a>      <span class="cm">&lt;!-- (ionInput)：在每次按键时 --&gt;</span>
+<a id="__codelineno-1-36" name="__codelineno-1-36"></a>      <span class="p">&lt;</span><span class="nt">ion-input</span> <span class="na">placeholder</span><span class="o">=</span><span class="s">"at least two letters: pel, dur..."</span> <span class="err">(</span><span class="na">ionInput</span><span class="err">)="</span><span class="na">input</span><span class="err">($</span><span class="na">event</span><span class="err">.</span><span class="na">detail</span><span class="err">.</span><span class="na">value</span><span class="err">)"</span> <span class="p">/&gt;</span>
+<a id="__codelineno-1-37" name="__codelineno-1-37"></a>      @for (r of results(); track r) {
+<a id="__codelineno-1-38" name="__codelineno-1-38"></a>        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>• {{ r }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-1-39" name="__codelineno-1-39"></a>      } @empty {
+<a id="__codelineno-1-40" name="__codelineno-1-40"></a>        <span class="p">&lt;</span><span class="nt">ion-note</span><span class="p">&gt;</span>no result<span class="p">&lt;/</span><span class="nt">ion-note</span><span class="p">&gt;</span>
+<a id="__codelineno-1-41" name="__codelineno-1-41"></a>      }
+<a id="__codelineno-1-42" name="__codelineno-1-42"></a>    <span class="p">&lt;/</span><span class="nt">ion-card-content</span><span class="p">&gt;</span>
+<a id="__codelineno-1-43" name="__codelineno-1-43"></a>  <span class="p">&lt;/</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+<a id="__codelineno-1-44" name="__codelineno-1-44"></a>
+<a id="__codelineno-1-45" name="__codelineno-1-45"></a>  <span class="p">&lt;</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+<a id="__codelineno-1-46" name="__codelineno-1-46"></a>    <span class="p">&lt;</span><span class="nt">ion-card-header</span><span class="p">&gt;</span>
+<a id="__codelineno-1-47" name="__codelineno-1-47"></a>      <span class="p">&lt;</span><span class="nt">ion-card-subtitle</span><span class="p">&gt;</span>Waiting for a Promise (resource)<span class="p">&lt;/</span><span class="nt">ion-card-subtitle</span><span class="p">&gt;</span>
+<a id="__codelineno-1-48" name="__codelineno-1-48"></a>    <span class="p">&lt;/</span><span class="nt">ion-card-header</span><span class="p">&gt;</span>
+<a id="__codelineno-1-49" name="__codelineno-1-49"></a>    <span class="p">&lt;</span><span class="nt">ion-card-content</span><span class="p">&gt;</span>
+<a id="__codelineno-1-50" name="__codelineno-1-50"></a>      <span class="cm">&lt;!-- 只要 Promise 尚未完成：显示等待内容 --&gt;</span>
+<a id="__codelineno-1-51" name="__codelineno-1-51"></a>      @if (message.hasValue()) {
+<a id="__codelineno-1-52" name="__codelineno-1-52"></a>        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>received: {{ message.value() }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-1-53" name="__codelineno-1-53"></a>      } @else {
+<a id="__codelineno-1-54" name="__codelineno-1-54"></a>        <span class="p">&lt;</span><span class="nt">ion-note</span><span class="p">&gt;</span>waiting...<span class="p">&lt;/</span><span class="nt">ion-note</span><span class="p">&gt;</span>
+<a id="__codelineno-1-55" name="__codelineno-1-55"></a>      }
+<a id="__codelineno-1-56" name="__codelineno-1-56"></a>    <span class="p">&lt;/</span><span class="nt">ion-card-content</span><span class="p">&gt;</span>
+<a id="__codelineno-1-57" name="__codelineno-1-57"></a>  <span class="p">&lt;/</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+<a id="__codelineno-1-58" name="__codelineno-1-58"></a>
+<a id="__codelineno-1-59" name="__codelineno-1-59"></a>  <span class="p">&lt;</span><span class="nt">h6</span><span class="p">&gt;</span>Log<span class="p">&lt;/</span><span class="nt">h6</span><span class="p">&gt;</span>
+<a id="__codelineno-1-60" name="__codelineno-1-60"></a>  @for (line of log(); track $index) {
+<a id="__codelineno-1-61" name="__codelineno-1-61"></a>    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"log"</span><span class="p">&gt;</span>{{ $index + 1 }}. {{ line }}<span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<a id="__codelineno-1-62" name="__codelineno-1-62"></a>  }
+<a id="__codelineno-1-63" name="__codelineno-1-63"></a><span class="p">&lt;/</span><span class="nt">ion-content</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>工具：</p>
+<ul>
+<li>第 28–30 行（.ts）：以 <strong><em>[Promise]</em></strong> 形式出现的定时器。<strong><em>[new Promise(...)]</em></strong> 接收一个启动任务的函数，任务完成时它会调用 <strong><em>[resolve]</em></strong> ；这里，<strong><em>[setTimeout]</em></strong> 在 <strong><em>[ms]</em></strong> 毫秒之后调用它。因此 <strong><em>[await wait(1000)]</em></strong> 会等待一秒而不阻塞应用程序（对应 <strong><em>[Future.delayed]</em></strong> ，来自 <em>[Dart]</em>）；</li>
+<li>第 33–36 行（.ts）：一个模拟的“服务器”：一个 <strong><em>[async]</em></strong> 函数，它返回一个 <strong><em>[Promise]</em></strong>；它的响应在随机延迟（200 到 800 毫秒之间）后到达；</li>
+<li>第 40–45 行（.ts）：一个<strong>异步生成器</strong>：一个 <strong><em>[async function*]</em></strong> 函数（带星号）。每个 <strong><em>[yield]</em></strong> 都会把一个值交给遍历该生成器的一方；在两个值之间，函数等待一秒。可以用循环 <strong><em>[for await (const n of countdown(20))]</em></strong> 来遍历它。</li>
+</ul>
+<p>第一个倒计时：</p>
+<ul>
+<li>第 67 行（.ts）：生成器，通过 <strong><em>[Observable]</em></strong> 被 <strong><em>[from()]</em></strong> 转换，它接受异步生成器、<strong><em>[Promise]</em></strong>、数组……按照惯例，包含 <strong><em>[Observable]</em></strong> 的变量，其名称以 <strong><em>[$]</em></strong> 结尾；</li>
+<li>第 23 行（HTML）：管道 <strong><em>[async]</em></strong> 订阅 <strong><em>[Observable]</em></strong>，显示每个新值，并在页面关闭时自动取消订阅；在收到第一个值之前，它为 <strong><em>[null]</em></strong> 。<strong><em>[@let n = ...]</em></strong> 声明一个模板变量，在第 24 行读取（<strong><em>[n ?? &#x27;...&#x27;]</em></strong>：只要 <strong><em>[n]</em></strong> 等于 <strong><em>[null]</em></strong>，就显示三个点）。与 <em>[Flutter]</em> 一样，<strong><em>[Observable]</em></strong> 只在类字段中创建一次（ONCE）：如果模板调用一个创建它的方法，每次屏幕更新都会重新开始倒计时！</li>
+</ul>
+<p>第二个，使用 <em>[RxJS]</em> 操作符：</p>
+<ul>
+<li>第 73 行（.ts）：<strong><em>[timer(0, 1000)]</em></strong> 立即输出 0，然后每秒输出 1、2、3……；<strong><em>[pipe]</em></strong> 方法依次对它应用各个操作符：<strong><em>[take(21)]</em></strong> 只保留前 21 个值（然后 <strong><em>[Observable]</em></strong> 结束）；<strong><em>[map]</em></strong> 转换每个值（0 变为 20，1 变为 19……）。<strong><em>[toSignal]</em></strong> 订阅 <strong><em>[Observable]</em></strong> 并把它变成一个<strong>信号</strong>，其值等于最后收到的值（在第一个值之前为 <strong><em>[undefined]</em></strong> ）；页面被销毁时它会取消订阅；</li>
+<li>第 26 行（HTML）：像读取任何其他信号一样读取该信号。</li>
+</ul>
+<p>预期的 <strong><em>[Promise]</em></strong>：</p>
+<ul>
+<li>第 77–82 行（.ts）：<strong><em>[resource()]</em></strong> 接收一个返回 <strong><em>[loader]</em></strong> 的 <strong><em>[Promise]</em></strong> 函数，调用它，并把它的状态以信号的形式公开：<strong><em>[isLoading()]</em></strong>、<strong><em>[hasValue()]</em></strong>、<strong><em>[value()]</em></strong>、<strong><em>[error()]</em></strong>。如果我们提供一个选项 <strong><em>[params]</em></strong>——一个读取信号的函数——那么每当这些信号变化时，资源就会重新加载（而 <strong><em>[loader]</em></strong> 则不会被监视）：我们将用它来查询服务器；</li>
+<li>第 51–55 行（HTML）：在 <strong><em>[Promise]</em></strong> 尚未完成时，显示占位内容；完成之后，显示它的值（这对应于 <strong><em>[FutureBuilder]</em></strong> 和 <strong><em>[ConnectionState.done]</em></strong>）。</li>
+</ul>
+<p>边输入边搜索：</p>
+<ul>
+<li>第 86 行（.ts）：<strong><em>[Subject]</em></strong> 是一个 <strong><em>[Observable]</em></strong> ，我们自己向其中推入（PUSH）值（[next]）：这里是每一次按键（第 111–113 行，由字段的 <strong><em>[(ionInput)]</em></strong> 事件触发，见 HTML 的第 36 行）；</li>
+<li>第 94 行（.ts）：防抖：我们等待用户停顿之后再查询服务器，而不是对每次按键都发送请求。<strong><em>[debounceTime(400)]</em></strong> 操作符只在 400 毫秒内没有新值之后才发出一个值：间隔太近的按键会被忽略。使用 <em>[Flutter]</em> 时，你必须在每次按键时手动取消并重新启动一个定时器（<strong><em>[Timer]</em></strong>）；</li>
+<li>第 95 行（.ts）：文本，去掉两端的空格，并转为小写；</li>
+<li>第 99 行（.ts）：<strong>过期</strong>响应。在另一次搜索已经发起之后（AFTER）才到达的响应必须被忽略：否则，旧搜索的慢响应会覆盖新搜索的响应。操作符 <strong><em>[switchMap]</em></strong> 处理这个问题：对于每个文本，它调用 <strong><em>[launch]</em></strong>，后者返回一个 <strong><em>[Observable]</em></strong> （即该搜索）；当新文本到达时，它会取消订阅（UNSUBSCRIBES），取消前一次搜索——其响应将永远不会被传递——然后发起新的搜索。使用 <em>[Flutter]</em> 时，则必须给搜索编号并比较编号；</li>
+<li>第 101 行（.ts）：<strong><em>[takeUntilDestroyed()]</em></strong> 在页面被销毁时终止订阅：没有它，<strong><em>[Subject]</em></strong> 及其操作符会继续存在（在 <strong><em>[dispose]</em></strong> 中对应于 <em>[Flutter]</em> 的做法）。它必须在“注入上下文”中调用：在这里就是构造函数；</li>
+<li>第 103 行（.ts）：<strong><em>[subscribe]</em></strong> 订阅 <strong><em>[Observable]</em></strong>：在有人订阅之前什么也不会发生。每个结果列表都存储在一个信号中，由模板显示（HTML 的第 37–41 行）；</li>
+<li>第 117–119 行（.ts）：少于两个字母：不搜索；<strong><em>[of([])]</em></strong> 是一个立即返回空列表的 <strong><em>[Observable]</em></strong> ；</li>
+<li>第 123–130 行（.ts）：搜索：服务器的 <strong><em>[Promise]</em></strong>，被 <strong><em>[from()]</em></strong> 转换为 <strong><em>[Observable]</em></strong>。<strong><em>[tap]</em></strong> 顺带执行一个操作而不修改值：记录响应已到达。<strong><em>[finalize]</em></strong> 在 <strong><em>[Observable]</em></strong> 终止时，或用户取消订阅时被调用：如果响应没有到达，就说明 <strong><em>[switchMap]</em></strong> 放弃了这次搜索，并把这一点记入日志。</li>
+</ul>
+<p>我们快速输入“p”、“pe”和“pel”：只会发送一次搜索。然后输入“du”，在“du”的响应到达之前又输入“dup”：在发送“dup”的搜索的那一刻，“du”的搜索就被放弃了（它的响应被忽略）。左图是页面刚打开时的样子；右图是五秒之后：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000043A000009268210AB98.png" width="280" height="605" style="display:inline-block; margin:4px;width:7.4cm;height:16.018cm;" class="odt-zoomable" data-zoom-src="images/100000000000043A000009268210AB98.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000043A000009267A6F4CD2.png" width="280" height="605" style="display:inline-block; margin:4px;width:7.4cm;height:16.018cm;" class="odt-zoomable" data-zoom-src="images/100000000000043A000009267A6F4CD2.png" /></td></tr></table>
+
+<p>在日志中，“response ignored”这一行出现在“search sent: ‘dup’”这一行之前：<strong><em>[switchMap]</em></strong> 在发起新搜索之前先取消了对旧搜索的订阅。</p>
+<p>在 <em>[Dart]</em> 中，<strong><em>[Future]</em></strong> 和 <strong><em>[Stream]</em></strong> 位于基础库中，而 <strong><em>[async]</em></strong>、<strong><em>[await]</em></strong>、<strong><em>[async*]</em></strong>、<strong><em>[yield]</em></strong> 和 <strong><em>[await for]</em></strong> 属于语言本身。在 <em>[JavaScript]</em> 中，<strong><em>[Promise]</em></strong>、<strong><em>[async]</em></strong>、<strong><em>[await]</em></strong> 和异步生成器同样包含在语言中；但对于值序列，<em>[Angular]</em> 依赖 <em>[RxJS]</em> 库，它的上百个操作符可以用一行代码解决防抖和过期响应之类的问题。<em>[Angular]</em> 的 HTTP 客户端（示例 22 至 25）同样返回 <strong><em>[Observable]</em></strong>。自从有了信号，<em>[Angular]</em> 只把 <em>[RxJS]</em> 留给事件流，并使用 <strong><em>[toSignal]</em></strong> 或 <strong><em>[resource]</em></strong> 来显示它们。</p>
+<h2 id="62-示例-20共享状态">6.2. <span style="color: #2e74b5">示例 20：共享状态</span></h2>
+<p>与前面几课相同的问题：应用程序数据有哪些“作用域”？</p>
+<ul>
+<li>组件的局部状态在组件被销毁时消失；</li>
+<li>“store”的状态由所有组件共享，并且在它们被移除后依然存在……但不会在应用程序关闭后保留；</li>
+<li>存储在设备上的状态在应用程序关闭后依然存在。</li>
+</ul>
+<h3 id="621-购物车">6.2.1. <span style="color: #1f4d78">购物车</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-2-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-2-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-2-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-2-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-2-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-2-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-2-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-2-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-2-10">10</a></span>
+<span class="normal"><a href="#__codelineno-2-11">11</a></span>
+<span class="normal"><a href="#__codelineno-2-12">12</a></span>
+<span class="normal"><a href="#__codelineno-2-13">13</a></span>
+<span class="normal"><a href="#__codelineno-2-14">14</a></span>
+<span class="normal"><a href="#__codelineno-2-15">15</a></span>
+<span class="normal"><a href="#__codelineno-2-16">16</a></span>
+<span class="normal"><a href="#__codelineno-2-17">17</a></span>
+<span class="normal"><a href="#__codelineno-2-18">18</a></span>
+<span class="normal"><a href="#__codelineno-2-19">19</a></span>
+<span class="normal"><a href="#__codelineno-2-20">20</a></span>
+<span class="normal"><a href="#__codelineno-2-21">21</a></span>
+<span class="normal"><a href="#__codelineno-2-22">22</a></span>
+<span class="normal"><a href="#__codelineno-2-23">23</a></span>
+<span class="normal"><a href="#__codelineno-2-24">24</a></span>
+<span class="normal"><a href="#__codelineno-2-25">25</a></span>
+<span class="normal"><a href="#__codelineno-2-26">26</a></span>
+<span class="normal"><a href="#__codelineno-2-27">27</a></span>
+<span class="normal"><a href="#__codelineno-2-28">28</a></span>
+<span class="normal"><a href="#__codelineno-2-29">29</a></span>
+<span class="normal"><a href="#__codelineno-2-30">30</a></span>
+<span class="normal"><a href="#__codelineno-2-31">31</a></span>
+<span class="normal"><a href="#__codelineno-2-32">32</a></span>
+<span class="normal"><a href="#__codelineno-2-33">33</a></span>
+<span class="normal"><a href="#__codelineno-2-34">34</a></span>
+<span class="normal"><a href="#__codelineno-2-35">35</a></span>
+<span class="normal"><a href="#__codelineno-2-36">36</a></span>
+<span class="normal"><a href="#__codelineno-2-37">37</a></span>
+<span class="normal"><a href="#__codelineno-2-38">38</a></span>
+<span class="normal"><a href="#__codelineno-2-39">39</a></span>
+<span class="normal"><a href="#__codelineno-2-40">40</a></span>
+<span class="normal"><a href="#__codelineno-2-41">41</a></span>
+<span class="normal"><a href="#__codelineno-2-42">42</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1">// src/app/ex20-shared-state/stores/cart.ts - 一个共享状态（SHARED STATE）：一个服务</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1">// -------------------------------------------------------------------------</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1">// “store”是一种存在于页面和组件之外（OUTSIDE）的状态，</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="c1">// 以唯一（ONE）一个实例存在，由所有读取它的一方共享。</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1">// 在 Angular 中，它是一个服务（SERVICE）（见示例 14），其状态由</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1">// 信号（SIGNALS）构成。通常的组织方式：</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="c1">//   - 状态（STATE）：私有（PRIVATE）信号（_items）；</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1">//   - 它们的读取：只读视图（asReadonly）；</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1">//   - 操作（ACTIONS）：方法，是唯一修改状态的部分；</span>
+<a id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="c1">//   - 计算值：computed 信号。</span>
+<a id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="c1">// 组件通过 inject(Cart) 获得它；读取这些信号的</span>
+<a id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="c1">// 模板会在它们（THEY）变化时更新，而且只在它们变化时更新。</span>
+<a id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="c1">// providedIn: 'root'：服务在第一次被请求时创建，并在</span>
+<a id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="c1">// 应用程序运行期间一直存在：它在组件被移除后依然存在……但</span>
+<a id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="c1">// 不会在应用程序停止后保留。</span>
+<a id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-2-18" name="__codelineno-2-18"></a>
+<a id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">computed</span><span class="p">,</span><span class="w"> </span><span class="nx">Injectable</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/core'</span><span class="p">;</span>
+<a id="__codelineno-2-20" name="__codelineno-2-20"></a>
+<a id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="k">export</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="nx">Item</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="w">  </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
+<a id="__codelineno-2-23" name="__codelineno-2-23"></a><span class="w">  </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="p">;</span>
+<a id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="p">}</span>
+<a id="__codelineno-2-25" name="__codelineno-2-25"></a>
+<a id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="kd">@Injectable</span><span class="p">({</span><span class="w"> </span><span class="nx">providedIn</span><span class="o">:</span><span class="w"> </span><span class="s1">'root'</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-2-27" name="__codelineno-2-27"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">Cart</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-28" name="__codelineno-2-28"></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">_items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signal</span><span class="o">&lt;</span><span class="nx">Item</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">([]);</span>
+<a id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="w">  </span><span class="c1">// 状态的不可修改（NON-MODIFIABLE）视图：只有这些操作才能改变它</span>
+<a id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_items</span><span class="p">.</span><span class="nx">asReadonly</span><span class="p">();</span>
+<a id="__codelineno-2-31" name="__codelineno-2-31"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">computed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_items</span><span class="p">().</span><span class="nx">length</span><span class="p">);</span>
+<a id="__codelineno-2-32" name="__codelineno-2-32"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">computed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_items</span><span class="p">().</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">s</span><span class="p">,</span><span class="w"> </span><span class="nx">a</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">s</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">a</span><span class="p">.</span><span class="nx">price</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">));</span>
+<a id="__codelineno-2-33" name="__codelineno-2-33"></a>
+<a id="__codelineno-2-34" name="__codelineno-2-34"></a><span class="w">  </span><span class="nx">add</span><span class="p">(</span><span class="nx">item</span><span class="o">:</span><span class="w"> </span><span class="kt">Item</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-35" name="__codelineno-2-35"></a><span class="w">    </span><span class="c1">// 一个新的（NEW）数组：信号会发现它的值已经变化</span>
+<a id="__codelineno-2-36" name="__codelineno-2-36"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">_items</span><span class="p">.</span><span class="nx">update</span><span class="p">((</span><span class="nx">items</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">[...</span><span class="nx">items</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="p">]);</span>
+<a id="__codelineno-2-37" name="__codelineno-2-37"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-38" name="__codelineno-2-38"></a>
+<a id="__codelineno-2-39" name="__codelineno-2-39"></a><span class="w">  </span><span class="nx">clear</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-2-40" name="__codelineno-2-40"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">_items</span><span class="p">.</span><span class="nx">set</span><span class="p">([]);</span>
+<a id="__codelineno-2-41" name="__codelineno-2-41"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-2-42" name="__codelineno-2-42"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>store 是一种跨越页面和组件的状态，作为单个实例存在，由所有访问它的一方共享。使用 <em>[Angular]</em> 时，它就是一个<strong>服务</strong> （见示例 14），其状态由<strong>信号</strong>组成：无需添加任何库，而 <em>[Flutter]</em> 则是围绕 <em>[ChangeNotifier]</em> 使用 <em>[provider]</em> 包。</p>
+<ul>
+<li>第 26 行：<strong><em>[providedIn: &#x27;root&#x27;]</em></strong>：服务在第一次被请求（<strong><em>[inject(Cart)]</em></strong>）时创建，作为单个实例存在，并在应用程序运行期间一直保持活动；</li>
+<li>第 28 行：状态：一个私有信号；</li>
+<li>第 30 行：状态的只读视图（<strong><em>[asReadonly()]</em></strong>）：只有操作（action）才能修改它；</li>
+<li>第 31–32 行：计算值：<strong><em>[computed]</em></strong> 信号，只在商品列表变化时才重新计算；</li>
+<li>第 34–41 行：操作：只有这些方法才会修改状态。第 36 行：一个新的（NEW）数组（[...items] 复制各商品），而不是像旧版本那样使用 <strong><em>[push]</em></strong>：信号会比较新旧值（<strong><em>[===]</em></strong>），只有在它们不同时才通知订阅者。无需编写 <strong><em>[notifyListeners()]</em></strong>：信号会负责通知。</li>
+</ul>
+<h3 id="622-偏好设置">6.2.2. <span style="color: #1f4d78">偏好设置</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span>
+<span class="normal"><a href="#__codelineno-3-15">15</a></span>
+<span class="normal"><a href="#__codelineno-3-16">16</a></span>
+<span class="normal"><a href="#__codelineno-3-17">17</a></span>
+<span class="normal"><a href="#__codelineno-3-18">18</a></span>
+<span class="normal"><a href="#__codelineno-3-19">19</a></span>
+<span class="normal"><a href="#__codelineno-3-20">20</a></span>
+<span class="normal"><a href="#__codelineno-3-21">21</a></span>
+<span class="normal"><a href="#__codelineno-3-22">22</a></span>
+<span class="normal"><a href="#__codelineno-3-23">23</a></span>
+<span class="normal"><a href="#__codelineno-3-24">24</a></span>
+<span class="normal"><a href="#__codelineno-3-25">25</a></span>
+<span class="normal"><a href="#__codelineno-3-26">26</a></span>
+<span class="normal"><a href="#__codelineno-3-27">27</a></span>
+<span class="normal"><a href="#__codelineno-3-28">28</a></span>
+<span class="normal"><a href="#__codelineno-3-29">29</a></span>
+<span class="normal"><a href="#__codelineno-3-30">30</a></span>
+<span class="normal"><a href="#__codelineno-3-31">31</a></span>
+<span class="normal"><a href="#__codelineno-3-32">32</a></span>
+<span class="normal"><a href="#__codelineno-3-33">33</a></span>
+<span class="normal"><a href="#__codelineno-3-34">34</a></span>
+<span class="normal"><a href="#__codelineno-3-35">35</a></span>
+<span class="normal"><a href="#__codelineno-3-36">36</a></span>
+<span class="normal"><a href="#__codelineno-3-37">37</a></span>
+<span class="normal"><a href="#__codelineno-3-38">38</a></span>
+<span class="normal"><a href="#__codelineno-3-39">39</a></span>
+<span class="normal"><a href="#__codelineno-3-40">40</a></span>
+<span class="normal"><a href="#__codelineno-3-41">41</a></span>
+<span class="normal"><a href="#__codelineno-3-42">42</a></span>
+<span class="normal"><a href="#__codelineno-3-43">43</a></span>
+<span class="normal"><a href="#__codelineno-3-44">44</a></span>
+<span class="normal"><a href="#__codelineno-3-45">45</a></span>
+<span class="normal"><a href="#__codelineno-3-46">46</a></span>
+<span class="normal"><a href="#__codelineno-3-47">47</a></span>
+<span class="normal"><a href="#__codelineno-3-48">48</a></span>
+<span class="normal"><a href="#__codelineno-3-49">49</a></span>
+<span class="normal"><a href="#__codelineno-3-50">50</a></span>
+<span class="normal"><a href="#__codelineno-3-51">51</a></span>
+<span class="normal"><a href="#__codelineno-3-52">52</a></span>
+<span class="normal"><a href="#__codelineno-3-53">53</a></span>
+<span class="normal"><a href="#__codelineno-3-54">54</a></span>
+<span class="normal"><a href="#__codelineno-3-55">55</a></span>
+<span class="normal"><a href="#__codelineno-3-56">56</a></span>
+<span class="normal"><a href="#__codelineno-3-57">57</a></span>
+<span class="normal"><a href="#__codelineno-3-58">58</a></span>
+<span class="normal"><a href="#__codelineno-3-59">59</a></span>
+<span class="normal"><a href="#__codelineno-3-60">60</a></span>
+<span class="normal"><a href="#__codelineno-3-61">61</a></span>
+<span class="normal"><a href="#__codelineno-3-62">62</a></span>
+<span class="normal"><a href="#__codelineno-3-63">63</a></span>
+<span class="normal"><a href="#__codelineno-3-64">64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="c1">// src/app/ex20-shared-state/stores/preferences.ts - 在应用停止后依然存在的状态</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1">// -------------------------------------------------------------------------</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1">// 要让一份数据在应用程序停止后依然存在，就必须把它存储</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="c1">// 在设备上（ON THE DEVICE）。@capacitor/preferences “插件”提供了一个小型的</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1">// 键 -&gt; 值字典（字符串），专属于该应用程序并</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1">// 保存在设备上（Android：SharedPreferences；在</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="c1">// 浏览器中：localStorage）。它的所有方法都是异步的（ASYNCHRONOUS）</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1">// （它们返回一个 Promise）：</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1">//   - 启动时，我们读取存储的值；</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="c1">//   - 每次变化时，我们再次写入它们。</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="c1">// 我们绝不（NEVER）在这里存储敏感数据（密码、令牌）：它们是</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="c1">// 以明文写入的。</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15"></a>
+<a id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">effect</span><span class="p">,</span><span class="w"> </span><span class="nx">Injectable</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/core'</span><span class="p">;</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17"></a><span class="c1">// “as DeviceStorage”：已重命名，以免与我们自己的类混淆</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Preferences</span><span class="w"> </span><span class="kr">as</span><span class="w"> </span><span class="nx">DeviceStorage</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@capacitor/preferences'</span><span class="p">;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="kd">const</span><span class="w"> </span><span class="nx">darkKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'example20.dark'</span><span class="p">;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="kd">const</span><span class="w"> </span><span class="nx">sizeKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'example20.size'</span><span class="p">;</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22"></a>
+<a id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="kd">@Injectable</span><span class="p">({</span><span class="w"> </span><span class="nx">providedIn</span><span class="o">:</span><span class="w"> </span><span class="s1">'root'</span><span class="w"> </span><span class="p">})</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">Preferences</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">  </span><span class="c1">// 初始状态：默认值，等待读取完成</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">_dark</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signal</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+<a id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="nx">_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signal</span><span class="p">(</span><span class="mf">16</span><span class="p">);</span><span class="w"> </span><span class="c1">// 文本大小</span>
+<a id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">dark</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_dark</span><span class="p">.</span><span class="nx">asReadonly</span><span class="p">();</span>
+<a id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_size</span><span class="p">.</span><span class="nx">asReadonly</span><span class="p">();</span>
+<a id="__codelineno-3-30" name="__codelineno-3-30"></a>
+<a id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">load</span><span class="p">();</span>
+<a id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="w">    </span><span class="c1">// 一个副作用（EFFECT）：每当它读取的某个信号变化时就会重新执行的函数。</span>
+<a id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="w">    </span><span class="c1">// 它把偏好设置应用于整个（WHOLE）应用程序：</span>
+<a id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="w">    </span><span class="c1">//   - &lt;html&gt; 上的 ion-palette-dark 类：Ionic 的深色主题</span>
+<a id="__codelineno-3-36" name="__codelineno-3-36"></a><span class="w">    </span><span class="c1">//     （见 styles.scss）；</span>
+<a id="__codelineno-3-37" name="__codelineno-3-37"></a><span class="w">    </span><span class="c1">//   - &lt;html&gt; 的字体大小：Ionic 的组件</span>
+<a id="__codelineno-3-38" name="__codelineno-3-38"></a><span class="w">    </span><span class="c1">//     以 rem（该大小的倍数）表示尺寸，因此它们会随之变化</span>
+<a id="__codelineno-3-39" name="__codelineno-3-39"></a><span class="w">    </span><span class="nx">effect</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-40" name="__codelineno-3-40"></a><span class="w">      </span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">classList</span><span class="p">.</span><span class="nx">toggle</span><span class="p">(</span><span class="s1">'ion-palette-dark'</span><span class="p">,</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_dark</span><span class="p">());</span>
+<a id="__codelineno-3-41" name="__codelineno-3-41"></a><span class="w">      </span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">style</span><span class="p">.</span><span class="nx">fontSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="sb">`</span><span class="si">${</span><span class="k">this</span><span class="p">.</span><span class="nx">_size</span><span class="p">()</span><span class="si">}</span><span class="sb">px`</span><span class="p">;</span>
+<a id="__codelineno-3-42" name="__codelineno-3-42"></a><span class="w">    </span><span class="p">});</span>
+<a id="__codelineno-3-43" name="__codelineno-3-43"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-44" name="__codelineno-3-44"></a>
+<a id="__codelineno-3-45" name="__codelineno-3-45"></a><span class="w">  </span><span class="c1">// 设备上存储的内容（如果键不存在，value 为 null）</span>
+<a id="__codelineno-3-46" name="__codelineno-3-46"></a><span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="nx">load</span><span class="p">()</span><span class="o">:</span><span class="w"> </span><span class="nb">Promise</span><span class="o">&lt;</span><span class="ow">void</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-47" name="__codelineno-3-47"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">dark</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">DeviceStorage</span><span class="p">.</span><span class="nx">get</span><span class="p">({</span><span class="w"> </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">darkKey</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-3-48" name="__codelineno-3-48"></a><span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="nx">DeviceStorage</span><span class="p">.</span><span class="nx">get</span><span class="p">({</span><span class="w"> </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">sizeKey</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-3-49" name="__codelineno-3-49"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dark</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_dark</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">dark</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">'true'</span><span class="p">);</span>
+<a id="__codelineno-3-50" name="__codelineno-3-50"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">size</span><span class="p">.</span><span class="nx">value</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">null</span><span class="p">)</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">_size</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nb">Number</span><span class="p">(</span><span class="nx">size</span><span class="p">.</span><span class="nx">value</span><span class="p">));</span>
+<a id="__codelineno-3-51" name="__codelineno-3-51"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-52" name="__codelineno-3-52"></a>
+<a id="__codelineno-3-53" name="__codelineno-3-53"></a><span class="w">  </span><span class="c1">// 每项偏好设置一个可选参数：我们只更改所提供的内容</span>
+<a id="__codelineno-3-54" name="__codelineno-3-54"></a><span class="w">  </span><span class="nx">update</span><span class="p">({</span><span class="w"> </span><span class="nx">dark</span><span class="p">,</span><span class="w"> </span><span class="nx">size</span><span class="w"> </span><span class="p">}</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">dark?</span><span class="o">:</span><span class="w"> </span><span class="kt">boolean</span><span class="p">;</span><span class="w"> </span><span class="nx">size?</span><span class="o">:</span><span class="w"> </span><span class="kt">number</span><span class="w"> </span><span class="p">})</span><span class="o">:</span><span class="w"> </span><span class="ow">void</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-55" name="__codelineno-3-55"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">dark</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-56" name="__codelineno-3-56"></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">_dark</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">dark</span><span class="p">);</span>
+<a id="__codelineno-3-57" name="__codelineno-3-57"></a><span class="w">      </span><span class="nx">DeviceStorage</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span><span class="w"> </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">darkKey</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">String</span><span class="p">(</span><span class="nx">dark</span><span class="p">)</span><span class="w"> </span><span class="p">});</span><span class="w"> </span><span class="c1">// 写入设备</span>
+<a id="__codelineno-3-58" name="__codelineno-3-58"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-59" name="__codelineno-3-59"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">size</span><span class="w"> </span><span class="o">!==</span><span class="w"> </span><span class="kc">undefined</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-3-60" name="__codelineno-3-60"></a><span class="w">      </span><span class="k">this</span><span class="p">.</span><span class="nx">_size</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">size</span><span class="p">);</span>
+<a id="__codelineno-3-61" name="__codelineno-3-61"></a><span class="w">      </span><span class="nx">DeviceStorage</span><span class="p">.</span><span class="nx">set</span><span class="p">({</span><span class="w"> </span><span class="nx">key</span><span class="o">:</span><span class="w"> </span><span class="kt">sizeKey</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="o">:</span><span class="w"> </span><span class="kt">String</span><span class="p">(</span><span class="nx">size</span><span class="p">)</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-3-62" name="__codelineno-3-62"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-3-63" name="__codelineno-3-63"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-3-64" name="__codelineno-3-64"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<p>要让数据在应用程序关闭后仍然保留，就必须把它存储在设备上。<em>[@capacitor/preferences]</em> “插件”来自 <em>[Capacitor]</em> ，它提供一个小型的键值字典（字符串），专属于该应用程序并存储在设备上：在 <em>[SharedPreferences]</em> （来自 <em>[Android]</em> ，即 <em>[shared_preferences]</em> 包（来自 <em>[Flutter]</em>）所使用的那个）上实现，而在浏览器中则使用 <em>[localStorage]</em>。它的所有方法都是<strong>异步的</strong>：它们返回一个 <strong><em>[Promise]</em></strong>。</p>
+<ul>
+<li>第 18 行：该插件本身也叫 <strong><em>[Preferences]</em></strong>；<strong><em>[as DeviceStorage]</em></strong> 在此文件中重命名它，以避免与我们自己的类混淆；</li>
+<li>第 26–29 行：初始状态，各信号设为默认值，以及它们的只读视图；</li>
+<li>第 32 行：服务创建时开始读取设备。读取是异步的：在短暂的片刻内，默认值生效；</li>
+<li>第 39–42 行：一个<strong>副作用</strong> （<strong><em>[effect]</em></strong>）：每当它读取的某个信号变化时就会重新执行的函数。它把偏好设置应用于整个（WHOLE）应用程序：[&lt;html&gt;] 标签上的 CSS 类 [ion-palette-dark] 会激活 <em>[Ionic]</em> 中的深色主题（定义在 <em>[styles.scss]</em> 中）；<strong><em>[&lt;html&gt;]</em></strong> 中的字体大小会放大文本，因为 <em>[Ionic]</em> 的组件以 <strong><em>[rem]</em></strong> （该大小的倍数）来表示它们的尺寸。副作用就是为此而设：把信号传递给外部世界（DOM、存储等）；不得用它来计算其他信号（<strong><em>[computed]</em></strong> 就是为此设计的）；</li>
+<li>第 46–51 行：设备读取操作：<strong><em>[DeviceStorage.get]</em></strong> 返回一个来自 <strong><em>[Promise]</em></strong> 的 <strong><em>[{ value }]</em></strong>，其中如果键不存在，<strong><em>[value]</em></strong> 等于 <strong><em>[null]</em></strong> 。这些值是字符串：需要进行转换；</li>
+<li>第 54–63 行：一个带可选参数的单一操作（一个解构对象：<strong><em>[{ dark, size }]</em></strong>）：只修改所提供的值，并立即把它写入设备（<strong><em>[DeviceStorage.set]</em></strong>）。我们不等待写入操作完成：信号已经变化了。</li>
+</ul>
+<p>切勿在这里存储敏感数据（密码、令牌）：它是以明文写入的。为此，有一些使用系统保险库的插件（<em>[Keystore]</em> 属于 <em>[Android]</em>，<em>[Keychain]</em> 属于 <em>[iOS]</em>）。</p>
+<h3 id="623-组件">6.2.3. <span style="color: #1f4d78">组件</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span>
+<span class="normal"><a href="#__codelineno-4-26">26</a></span>
+<span class="normal"><a href="#__codelineno-4-27">27</a></span>
+<span class="normal"><a href="#__codelineno-4-28">28</a></span>
+<span class="normal"><a href="#__codelineno-4-29">29</a></span>
+<span class="normal"><a href="#__codelineno-4-30">30</a></span>
+<span class="normal"><a href="#__codelineno-4-31">31</a></span>
+<span class="normal"><a href="#__codelineno-4-32">32</a></span>
+<span class="normal"><a href="#__codelineno-4-33">33</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="c1">// src/app/ex20-shared-state/components/shop.ts - 向共享购物车添加（ADDS）商品</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1">// -------------------------------------------------------------------------</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1">// 商店只是调用（CALLS）购物车的一个操作；它的模板不读取</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1">// 购物车的任何信号：购物车变化时它不会更新。</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7"></a>
+<a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">CurrencyPipe</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/common'</span><span class="p">;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="nx">inject</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/core'</span><span class="p">;</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">IonButton</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCard</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardContent</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardHeader</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardSubtitle</span><span class="p">,</span><span class="w"> </span><span class="nx">IonIcon</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@ionic/angular'</span><span class="p">;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">addIcons</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'ionicons'</span><span class="p">;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'ionicons/icons'</span><span class="p">;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Item</span><span class="p">,</span><span class="w"> </span><span class="nx">Cart</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'../stores/cart'</span><span class="p">;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14"></a>
+<a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="kd">const</span><span class="w"> </span><span class="nx">products</span><span class="o">:</span><span class="w"> </span><span class="kt">Item</span><span class="p">[]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Consultation'</span><span class="p">,</span><span class="w"> </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="kt">30</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">label</span><span class="o">:</span><span class="w"> </span><span class="s1">'Vaccine'</span><span class="p">,</span><span class="w"> </span><span class="nx">price</span><span class="o">:</span><span class="w"> </span><span class="kt">12.5</span><span class="w"> </span><span class="p">},</span>
+<a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="p">];</span>
+<a id="__codelineno-4-19" name="__codelineno-4-19"></a>
+<a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="kd">@Component</span><span class="p">({</span>
+<a id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="s1">'app-ex20-shop'</span><span class="p">,</span>
+<a id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">CurrencyPipe</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCard</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardHeader</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardSubtitle</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCardContent</span><span class="p">,</span><span class="w"> </span><span class="nx">IonButton</span><span class="p">,</span><span class="w"> </span><span class="nx">IonIcon</span><span class="p">],</span>
+<a id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="w">  </span><span class="nx">templateUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">'./shop.html'</span><span class="p">,</span>
+<a id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="p">})</span>
+<a id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">Shop</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">products</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">products</span><span class="p">;</span>
+<a id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="w">  </span><span class="c1">// 与其他组件相同（SAME）的购物车（唯一的一个实例）</span>
+<a id="__codelineno-4-28" name="__codelineno-4-28"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">cart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">inject</span><span class="p">(</span><span class="nx">Cart</span><span class="p">);</span>
+<a id="__codelineno-4-29" name="__codelineno-4-29"></a>
+<a id="__codelineno-4-30" name="__codelineno-4-30"></a><span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-4-31" name="__codelineno-4-31"></a><span class="w">    </span><span class="nx">addIcons</span><span class="p">({</span><span class="w"> </span><span class="nx">add</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-4-32" name="__codelineno-4-32"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-5-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-5-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-5-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-5-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-5-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-5-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-5-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-5-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-5-10">10</a></span>
+<span class="normal"><a href="#__codelineno-5-11">11</a></span>
+<span class="normal"><a href="#__codelineno-5-12">12</a></span>
+<span class="normal"><a href="#__codelineno-5-13">13</a></span>
+<span class="normal"><a href="#__codelineno-5-14">14</a></span>
+<span class="normal"><a href="#__codelineno-5-15">15</a></span>
+<span class="normal"><a href="#__codelineno-5-16">16</a></span>
+<span class="normal"><a href="#__codelineno-5-17">17</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="cm">&lt;!-- ======================================================================</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="cm">     shop.html - two products to add to the cart</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="cm">     ====================================================================== --&gt;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+<a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="p">&lt;</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6"></a>  <span class="p">&lt;</span><span class="nt">ion-card-header</span><span class="p">&gt;</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="p">&lt;</span><span class="nt">ion-card-subtitle</span><span class="p">&gt;</span>Shop<span class="p">&lt;/</span><span class="nt">ion-card-subtitle</span><span class="p">&gt;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8"></a>  <span class="p">&lt;/</span><span class="nt">ion-card-header</span><span class="p">&gt;</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9"></a>  <span class="p">&lt;</span><span class="nt">ion-card-content</span><span class="p">&gt;</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10"></a>    @for (p of products; track p.label) {
+<a id="__codelineno-5-11" name="__codelineno-5-11"></a>      <span class="p">&lt;</span><span class="nt">ion-button</span> <span class="na">fill</span><span class="o">=</span><span class="s">"clear"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">cart</span><span class="err">.</span><span class="na">add</span><span class="err">(</span><span class="na">p</span><span class="err">)"</span><span class="p">&gt;</span>
+<a id="__codelineno-5-12" name="__codelineno-5-12"></a>        <span class="p">&lt;</span><span class="nt">ion-icon</span> <span class="na">slot</span><span class="o">=</span><span class="s">"start"</span> <span class="na">name</span><span class="o">=</span><span class="s">"add"</span> <span class="p">/&gt;</span>
+<a id="__codelineno-5-13" name="__codelineno-5-13"></a>        {{ p.label }} ({{ p.price | currency: 'EUR' }})
+<a id="__codelineno-5-14" name="__codelineno-5-14"></a>      <span class="p">&lt;/</span><span class="nt">ion-button</span><span class="p">&gt;</span>
+<a id="__codelineno-5-15" name="__codelineno-5-15"></a>    }
+<a id="__codelineno-5-16" name="__codelineno-5-16"></a>  <span class="p">&lt;/</span><span class="nt">ion-card-content</span><span class="p">&gt;</span>
+<a id="__codelineno-5-17" name="__codelineno-5-17"></a><span class="p">&lt;/</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>第 28 行（.ts）：<strong><em>[inject(Cart)] 返回与其他组件相同的（SAME）购物车</em></strong>；</li>
+<li>第 11 行（html）：商店只是调用一个操作。它的模板不读取购物车中的任何信号：购物车变化时它不会更新（在 <strong><em>[context.read&lt;Cart&gt;()]</em></strong> 与 <em>[provider]</em> 中就是如此）；</li>
+<li>第 13 行（html）：<strong><em>[currency]</em></strong> 管道以英式风格格式化价格（见示例 09）。</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span>
+<span class="normal"><a href="#__codelineno-6-24">24</a></span>
+<span class="normal"><a href="#__codelineno-6-25">25</a></span>
+<span class="normal"><a href="#__codelineno-6-26">26</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="c1">// src/app/ex20-shared-state/components/cart-summary.ts - 读取（READS）同一个购物车</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1">// -------------------------------------------------------------------------</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1">// 模板读取购物车的两个信号，count() 和 total()：只要其中</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="c1">// 一个（ONE）变化就会更新，而且仅在此时更新。</span>
+<a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-6-7" name="__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">CurrencyPipe</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/common'</span><span class="p">;</span>
+<a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="nx">inject</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/core'</span><span class="p">;</span>
+<a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">IonButton</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCard</span><span class="p">,</span><span class="w"> </span><span class="nx">IonIcon</span><span class="p">,</span><span class="w"> </span><span class="nx">IonItem</span><span class="p">,</span><span class="w"> </span><span class="nx">IonLabel</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@ionic/angular'</span><span class="p">;</span>
+<a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">addIcons</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'ionicons'</span><span class="p">;</span>
+<a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">cart</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'ionicons/icons'</span><span class="p">;</span>
+<a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Cart</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'../stores/cart'</span><span class="p">;</span>
+<a id="__codelineno-6-14" name="__codelineno-6-14"></a>
+<a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="kd">@Component</span><span class="p">({</span>
+<a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="s1">'app-ex20-cart-summary'</span><span class="p">,</span>
+<a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">CurrencyPipe</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCard</span><span class="p">,</span><span class="w"> </span><span class="nx">IonItem</span><span class="p">,</span><span class="w"> </span><span class="nx">IonIcon</span><span class="p">,</span><span class="w"> </span><span class="nx">IonLabel</span><span class="p">,</span><span class="w"> </span><span class="nx">IonButton</span><span class="p">],</span>
+<a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">  </span><span class="nx">templateUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">'./cart-summary.html'</span><span class="p">,</span>
+<a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="p">})</span>
+<a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">CartSummary</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">cart</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">inject</span><span class="p">(</span><span class="nx">Cart</span><span class="p">);</span>
+<a id="__codelineno-6-22" name="__codelineno-6-22"></a>
+<a id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="w">  </span><span class="kr">constructor</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-6-24" name="__codelineno-6-24"></a><span class="w">    </span><span class="nx">addIcons</span><span class="p">({</span><span class="w"> </span><span class="nx">cart</span><span class="w"> </span><span class="p">});</span>
+<a id="__codelineno-6-25" name="__codelineno-6-25"></a><span class="w">  </span><span class="p">}</span>
+<a id="__codelineno-6-26" name="__codelineno-6-26"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-7-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-7-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-7-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-7-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-7-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-7-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-7-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-7-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-7-10">10</a></span>
+<span class="normal"><a href="#__codelineno-7-11">11</a></span>
+<span class="normal"><a href="#__codelineno-7-12">12</a></span>
+<span class="normal"><a href="#__codelineno-7-13">13</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="cm">&lt;!-- ======================================================================</span>
+<a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="cm">     cart-summary.html - the number of items and the total of the cart</span>
+<a id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="cm">     ====================================================================== --&gt;</span>
+<a id="__codelineno-7-4" name="__codelineno-7-4"></a>
+<a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="p">&lt;</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+<a id="__codelineno-7-6" name="__codelineno-7-6"></a>  <span class="p">&lt;</span><span class="nt">ion-item</span> <span class="na">lines</span><span class="o">=</span><span class="s">"none"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-7" name="__codelineno-7-7"></a>    <span class="p">&lt;</span><span class="nt">ion-icon</span> <span class="na">slot</span><span class="o">=</span><span class="s">"start"</span> <span class="na">name</span><span class="o">=</span><span class="s">"cart"</span> <span class="p">/&gt;</span>
+<a id="__codelineno-7-8" name="__codelineno-7-8"></a>    <span class="p">&lt;</span><span class="nt">ion-label</span><span class="p">&gt;</span>{{ cart.count() }} item(s), {{ cart.total() | currency: 'EUR' }}<span class="p">&lt;/</span><span class="nt">ion-label</span><span class="p">&gt;</span>
+<a id="__codelineno-7-9" name="__codelineno-7-9"></a>    <span class="p">&lt;</span><span class="nt">ion-button</span> <span class="na">slot</span><span class="o">=</span><span class="s">"end"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"clear"</span> <span class="err">[</span><span class="na">disabled</span><span class="err">]="</span><span class="na">cart</span><span class="err">.</span><span class="na">count</span><span class="err">()</span> <span class="err">===</span> <span class="na">0</span><span class="err">"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">cart</span><span class="err">.</span><span class="na">clear</span><span class="err">()"</span><span class="p">&gt;</span>
+<a id="__codelineno-7-10" name="__codelineno-7-10"></a>      Clear
+<a id="__codelineno-7-11" name="__codelineno-7-11"></a>    <span class="p">&lt;/</span><span class="nt">ion-button</span><span class="p">&gt;</span>
+<a id="__codelineno-7-12" name="__codelineno-7-12"></a>  <span class="p">&lt;/</span><span class="nt">ion-item</span><span class="p">&gt;</span>
+<a id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="p">&lt;/</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>第 8–9 行（HTML）：模板读取购物车中的两个信号，<strong><em>[count()]</em></strong> 和 <strong><em>[total()]</em></strong>：只要其中任何一个变化，它就会更新，而且仅在此时更新。使用 <em>[provider]</em> 时，你必须在 <strong><em>[context.watch]</em></strong> （整个购物车）和 <strong><em>[context.select]</em></strong> （单个项目）之间做选择；而有了信号，精确度是自动的：它取决于所读取的内容。</li>
+</ul>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-8-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-8-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-8-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-8-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-8-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-8-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-8-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-8-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-8-10">10</a></span>
+<span class="normal"><a href="#__codelineno-8-11">11</a></span>
+<span class="normal"><a href="#__codelineno-8-12">12</a></span>
+<span class="normal"><a href="#__codelineno-8-13">13</a></span>
+<span class="normal"><a href="#__codelineno-8-14">14</a></span>
+<span class="normal"><a href="#__codelineno-8-15">15</a></span>
+<span class="normal"><a href="#__codelineno-8-16">16</a></span>
+<span class="normal"><a href="#__codelineno-8-17">17</a></span>
+<span class="normal"><a href="#__codelineno-8-18">18</a></span>
+<span class="normal"><a href="#__codelineno-8-19">19</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="c1">// src/app/ex20-shared-state/components/local-counter.ts - 一个局部状态（LOCAL）</span>
+<a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="c1">// -------------------------------------------------------------------------</span>
+<a id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1">// clicks 信号属于该组件：它随组件一起创建，也随组件一起</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="c1">// 消失。</span>
+<a id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-8-7" name="__codelineno-8-7"></a>
+<a id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="nx">input</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/core'</span><span class="p">;</span>
+<a id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">IonButton</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCard</span><span class="p">,</span><span class="w"> </span><span class="nx">IonItem</span><span class="p">,</span><span class="w"> </span><span class="nx">IonLabel</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@ionic/angular'</span><span class="p">;</span>
+<a id="__codelineno-8-10" name="__codelineno-8-10"></a>
+<a id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="kd">@Component</span><span class="p">({</span>
+<a id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="s1">'app-ex20-local-counter'</span><span class="p">,</span>
+<a id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="nx">IonCard</span><span class="p">,</span><span class="w"> </span><span class="nx">IonItem</span><span class="p">,</span><span class="w"> </span><span class="nx">IonLabel</span><span class="p">,</span><span class="w"> </span><span class="nx">IonButton</span><span class="p">],</span>
+<a id="__codelineno-8-14" name="__codelineno-8-14"></a><span class="w">  </span><span class="nx">templateUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">'./local-counter.html'</span><span class="p">,</span>
+<a id="__codelineno-8-15" name="__codelineno-8-15"></a><span class="p">})</span>
+<a id="__codelineno-8-16" name="__codelineno-8-16"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">LocalCounter</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-8-17" name="__codelineno-8-17"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">title</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">input</span><span class="p">.</span><span class="nx">required</span><span class="o">&lt;</span><span class="kt">string</span><span class="o">&gt;</span><span class="p">();</span>
+<a id="__codelineno-8-18" name="__codelineno-8-18"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">clicks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signal</span><span class="p">(</span><span class="mf">0</span><span class="p">);</span>
+<a id="__codelineno-8-19" name="__codelineno-8-19"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="cm">&lt;!-- ======================================================================</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="cm">     local-counter.html - a click counter</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="cm">     ====================================================================== --&gt;</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4"></a>
+<a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="p">&lt;</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+<a id="__codelineno-9-6" name="__codelineno-9-6"></a>  <span class="p">&lt;</span><span class="nt">ion-item</span> <span class="na">lines</span><span class="o">=</span><span class="s">"none"</span><span class="p">&gt;</span>
+<a id="__codelineno-9-7" name="__codelineno-9-7"></a>    <span class="p">&lt;</span><span class="nt">ion-label</span><span class="p">&gt;</span>{{ title() }}<span class="p">&lt;/</span><span class="nt">ion-label</span><span class="p">&gt;</span>
+<a id="__codelineno-9-8" name="__codelineno-9-8"></a>    <span class="p">&lt;</span><span class="nt">ion-button</span> <span class="na">slot</span><span class="o">=</span><span class="s">"end"</span> <span class="na">fill</span><span class="o">=</span><span class="s">"outline"</span> <span class="err">(</span><span class="na">click</span><span class="err">)="</span><span class="na">clicks</span><span class="err">.</span><span class="na">set</span><span class="err">(</span><span class="na">clicks</span><span class="err">()</span> <span class="err">+</span> <span class="na">1</span><span class="err">)"</span><span class="p">&gt;</span>{{ clicks() }} click(s)<span class="p">&lt;/</span><span class="nt">ion-button</span><span class="p">&gt;</span>
+<a id="__codelineno-9-9" name="__codelineno-9-9"></a>  <span class="p">&lt;/</span><span class="nt">ion-item</span><span class="p">&gt;</span>
+<a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="p">&lt;/</span><span class="nt">ion-card</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<p>一个<strong>局部</strong>状态（.ts 文件的第 18 行），它随组件一起创建和销毁。</p>
+<h3 id="624-页面">6.2.4. <span style="color: #1f4d78">页面</span></h3>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span>
+<span class="normal"><a href="#__codelineno-10-23">23</a></span>
+<span class="normal"><a href="#__codelineno-10-24">24</a></span>
+<span class="normal"><a href="#__codelineno-10-25">25</a></span>
+<span class="normal"><a href="#__codelineno-10-26">26</a></span>
+<span class="normal"><a href="#__codelineno-10-27">27</a></span>
+<span class="normal"><a href="#__codelineno-10-28">28</a></span>
+<span class="normal"><a href="#__codelineno-10-29">29</a></span>
+<span class="normal"><a href="#__codelineno-10-30">30</a></span>
+<span class="normal"><a href="#__codelineno-10-31">31</a></span>
+<span class="normal"><a href="#__codelineno-10-32">32</a></span>
+<span class="normal"><a href="#__codelineno-10-33">33</a></span>
+<span class="normal"><a href="#__codelineno-10-34">34</a></span>
+<span class="normal"><a href="#__codelineno-10-35">35</a></span>
+<span class="normal"><a href="#__codelineno-10-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="c1">// src/app/ex20-shared-state/ex20.page.ts - 数据的三种“作用域”</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1">// -------------------------------------------------------------------------</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c1">//   - 组件（LocalCounter）的局部状态（LOCAL）随组件一起消失；</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="c1">//   - 服务（购物车）的状态（SERVICE）由所有组件共享，</span>
+<a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1">//     并在它们被移除后依然存在——但不会在应用程序停止后保留；</span>
+<a id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="c1">//   - 存储在设备上的状态（偏好设置）在应用停止后依然存在。</span>
+<a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="c1">// 还有 CSS 类 ion-hide：内容被隐藏（HIDDEN），但没有被移除；它的</span>
+<a id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1">// 局部状态得以保留。</span>
+<a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="c1">// 取消勾选再重新勾选“显示该区域”，然后停止并重新启动</span>
+<a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="c1">// 应用程序：比较一下。</span>
+<a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="c1">// =========================================================================</span>
+<a id="__codelineno-10-13" name="__codelineno-10-13"></a>
+<a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Component</span><span class="p">,</span><span class="w"> </span><span class="nx">inject</span><span class="p">,</span><span class="w"> </span><span class="nx">signal</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@angular/core'</span><span class="p">;</span>
+<a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">  </span><span class="nx">IonBackButton</span><span class="p">,</span><span class="w"> </span><span class="nx">IonButtons</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCheckbox</span><span class="p">,</span><span class="w"> </span><span class="nx">IonContent</span><span class="p">,</span><span class="w"> </span><span class="nx">IonHeader</span><span class="p">,</span><span class="w"> </span><span class="nx">IonItem</span><span class="p">,</span><span class="w"> </span><span class="nx">IonLabel</span><span class="p">,</span><span class="w"> </span><span class="nx">IonList</span><span class="p">,</span><span class="w"> </span><span class="nx">IonRange</span><span class="p">,</span><span class="w"> </span><span class="nx">IonTitle</span><span class="p">,</span>
+<a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">  </span><span class="nx">IonToggle</span><span class="p">,</span><span class="w"> </span><span class="nx">IonToolbar</span><span class="p">,</span>
+<a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'@ionic/angular'</span><span class="p">;</span>
+<a id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Shop</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./components/shop'</span><span class="p">;</span>
+<a id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">LocalCounter</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./components/local-counter'</span><span class="p">;</span>
+<a id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">CartSummary</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./components/cart-summary'</span><span class="p">;</span>
+<a id="__codelineno-10-22" name="__codelineno-10-22"></a><span class="k">import</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">Preferences</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="kr">from</span><span class="w"> </span><span class="s1">'./stores/preferences'</span><span class="p">;</span>
+<a id="__codelineno-10-23" name="__codelineno-10-23"></a>
+<a id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="kd">@Component</span><span class="p">({</span>
+<a id="__codelineno-10-25" name="__codelineno-10-25"></a><span class="w">  </span><span class="nx">selector</span><span class="o">:</span><span class="w"> </span><span class="s1">'app-ex20'</span><span class="p">,</span>
+<a id="__codelineno-10-26" name="__codelineno-10-26"></a><span class="w">  </span><span class="nx">imports</span><span class="o">:</span><span class="w"> </span><span class="p">[</span>
+<a id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="w">    </span><span class="nx">IonHeader</span><span class="p">,</span><span class="w"> </span><span class="nx">IonToolbar</span><span class="p">,</span><span class="w"> </span><span class="nx">IonButtons</span><span class="p">,</span><span class="w"> </span><span class="nx">IonBackButton</span><span class="p">,</span><span class="w"> </span><span class="nx">IonTitle</span><span class="p">,</span><span class="w"> </span><span class="nx">IonContent</span><span class="p">,</span><span class="w"> </span><span class="nx">IonList</span><span class="p">,</span><span class="w"> </span><span class="nx">IonItem</span><span class="p">,</span><span class="w"> </span><span class="nx">IonLabel</span><span class="p">,</span><span class="w"> </span><span class="nx">IonToggle</span><span class="p">,</span>
+<a id="__codelineno-10-28" name="__codelineno-10-28"></a><span class="w">    </span><span class="nx">IonRange</span><span class="p">,</span><span class="w"> </span><span class="nx">IonCheckbox</span><span class="p">,</span><span class="w"> </span><span class="nx">Shop</span><span class="p">,</span><span class="w"> </span><span class="nx">CartSummary</span><span class="p">,</span><span class="w"> </span><span class="nx">LocalCounter</span><span class="p">,</span>
+<a id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="w">  </span><span class="p">],</span>
+<a id="__codelineno-10-30" name="__codelineno-10-30"></a><span class="w">  </span><span class="nx">templateUrl</span><span class="o">:</span><span class="w"> </span><span class="s1">'./ex20.page.html'</span><span class="p">,</span>
+<a id="__codelineno-10-31" name="__codelineno-10-31"></a><span class="p">})</span>
+<a id="__codelineno-10-32" name="__codelineno-10-32"></a><span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">Ex20Page</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-10-33" name="__codelineno-10-33"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">preferences</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">inject</span><span class="p">(</span><span class="nx">Preferences</span><span class="p">);</span>
+<a id="__codelineno-10-34" name="__codelineno-10-34"></a><span class="w">  </span><span class="c1">// 页面的一个局部状态</span>
+<a id="__codelineno-10-35" name="__codelineno-10-35"></a><span class="w">  </span><span class="k">readonly</span><span class="w"> </span><span class="nx">areaVisible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signal</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<a id="__codelineno-10-36" name="__codelineno-10-36"></a><span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span>
+<span class="normal"><a href="#__codelineno-11-21">21</a></span>
+<span class="normal"><a href="#__codelineno-11-22">22</a></span>
+<span class="normal"><a href="#__codelineno-11-23">23</a></span>
+<span class="normal"><a href="#__codelineno-11-24">24</a></span>
+<span class="normal"><a href="#__codelineno-11-25">25</a></span>
+<span class="normal"><a href="#__codelineno-11-26">26</a></span>
+<span class="normal"><a href="#__codelineno-11-27">27</a></span>
+<span class="normal"><a href="#__codelineno-11-28">28</a></span>
+<span class="normal"><a href="#__codelineno-11-29">29</a></span>
+<span class="normal"><a href="#__codelineno-11-30">30</a></span>
+<span class="normal"><a href="#__codelineno-11-31">31</a></span>
+<span class="normal"><a href="#__codelineno-11-32">32</a></span>
+<span class="normal"><a href="#__codelineno-11-33">33</a></span>
+<span class="normal"><a href="#__codelineno-11-34">34</a></span>
+<span class="normal"><a href="#__codelineno-11-35">35</a></span>
+<span class="normal"><a href="#__codelineno-11-36">36</a></span>
+<span class="normal"><a href="#__codelineno-11-37">37</a></span>
+<span class="normal"><a href="#__codelineno-11-38">38</a></span>
+<span class="normal"><a href="#__codelineno-11-39">39</a></span>
+<span class="normal"><a href="#__codelineno-11-40">40</a></span>
+<span class="normal"><a href="#__codelineno-11-41">41</a></span>
+<span class="normal"><a href="#__codelineno-11-42">42</a></span>
+<span class="normal"><a href="#__codelineno-11-43">43</a></span>
+<span class="normal"><a href="#__codelineno-11-44">44</a></span>
+<span class="normal"><a href="#__codelineno-11-45">45</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="cm">&lt;!-- ======================================================================</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="cm">     ex20.page.html - a shared state</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="cm">     ====================================================================== --&gt;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4"></a>
+<a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="p">&lt;</span><span class="nt">ion-header</span><span class="p">&gt;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6"></a>  <span class="p">&lt;</span><span class="nt">ion-toolbar</span> <span class="na">color</span><span class="o">=</span><span class="s">"primary"</span><span class="p">&gt;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7"></a>    <span class="p">&lt;</span><span class="nt">ion-buttons</span> <span class="na">slot</span><span class="o">=</span><span class="s">"start"</span><span class="p">&gt;</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8"></a>      <span class="p">&lt;</span><span class="nt">ion-back-button</span> <span class="na">defaultHref</span><span class="o">=</span><span class="s">"/"</span> <span class="p">/&gt;</span>
+<a id="__codelineno-11-9" name="__codelineno-11-9"></a>    <span class="p">&lt;/</span><span class="nt">ion-buttons</span><span class="p">&gt;</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10"></a>    <span class="p">&lt;</span><span class="nt">ion-title</span><span class="p">&gt;</span>Example 20 - a shared state<span class="p">&lt;/</span><span class="nt">ion-title</span><span class="p">&gt;</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11"></a>  <span class="p">&lt;/</span><span class="nt">ion-toolbar</span><span class="p">&gt;</span>
+<a id="__codelineno-11-12" name="__codelineno-11-12"></a><span class="p">&lt;/</span><span class="nt">ion-header</span><span class="p">&gt;</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13"></a>
+<a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="p">&lt;</span><span class="nt">ion-content</span> <span class="na">class</span><span class="o">=</span><span class="s">"ion-padding"</span><span class="p">&gt;</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15"></a>  <span class="p">&lt;</span><span class="nt">ion-list</span><span class="p">&gt;</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16"></a>    <span class="p">&lt;</span><span class="nt">ion-item</span><span class="p">&gt;</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17"></a>      <span class="cm">&lt;!-- [checked]：服务的值；(ionChange)：修改它的操作 --&gt;</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18"></a>      <span class="p">&lt;</span><span class="nt">ion-toggle</span> <span class="err">[</span><span class="na">checked</span><span class="err">]="</span><span class="na">preferences</span><span class="err">.</span><span class="na">dark</span><span class="err">()"</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19"></a>        <span class="err">(</span><span class="na">ionChange</span><span class="err">)="</span><span class="na">preferences</span><span class="err">.</span><span class="na">update</span><span class="err">({</span> <span class="na">dark:</span> <span class="err">$</span><span class="na">event</span><span class="err">.</span><span class="na">detail</span><span class="err">.</span><span class="na">checked</span> <span class="err">})"</span><span class="p">&gt;</span>dark theme<span class="p">&lt;/</span><span class="nt">ion-toggle</span><span class="p">&gt;</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20"></a>    <span class="p">&lt;/</span><span class="nt">ion-item</span><span class="p">&gt;</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21"></a>    <span class="p">&lt;</span><span class="nt">ion-item</span><span class="p">&gt;</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22"></a>      <span class="cm">&lt;!-- snaps / ticks：刻度，每一步一个 --&gt;</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23"></a>      <span class="p">&lt;</span><span class="nt">ion-range</span> <span class="err">[</span><span class="na">min</span><span class="err">]="</span><span class="na">12</span><span class="err">"</span> <span class="err">[</span><span class="na">max</span><span class="err">]="</span><span class="na">22</span><span class="err">"</span> <span class="err">[</span><span class="na">step</span><span class="err">]="</span><span class="na">1</span><span class="err">"</span> <span class="err">[</span><span class="na">snaps</span><span class="err">]="</span><span class="na">true</span><span class="err">"</span> <span class="err">[</span><span class="na">ticks</span><span class="err">]="</span><span class="na">true</span><span class="err">"</span> <span class="err">[</span><span class="na">value</span><span class="err">]="</span><span class="na">preferences</span><span class="err">.</span><span class="na">size</span><span class="err">()"</span>
+<a id="__codelineno-11-24" name="__codelineno-11-24"></a>        <span class="err">(</span><span class="na">ionChange</span><span class="err">)="</span><span class="na">preferences</span><span class="err">.</span><span class="na">update</span><span class="err">({</span> <span class="na">size:</span> <span class="err">+$</span><span class="na">event</span><span class="err">.</span><span class="na">detail</span><span class="err">.</span><span class="na">value</span> <span class="err">})"</span><span class="p">&gt;</span>
+<a id="__codelineno-11-25" name="__codelineno-11-25"></a>        <span class="p">&lt;</span><span class="nt">ion-label</span> <span class="na">slot</span><span class="o">=</span><span class="s">"label"</span><span class="p">&gt;</span>text size: {{ preferences.size() }}<span class="p">&lt;/</span><span class="nt">ion-label</span><span class="p">&gt;</span>
+<a id="__codelineno-11-26" name="__codelineno-11-26"></a>      <span class="p">&lt;/</span><span class="nt">ion-range</span><span class="p">&gt;</span>
+<a id="__codelineno-11-27" name="__codelineno-11-27"></a>    <span class="p">&lt;/</span><span class="nt">ion-item</span><span class="p">&gt;</span>
+<a id="__codelineno-11-28" name="__codelineno-11-28"></a>    <span class="p">&lt;</span><span class="nt">ion-item</span><span class="p">&gt;</span>
+<a id="__codelineno-11-29" name="__codelineno-11-29"></a>      <span class="p">&lt;</span><span class="nt">ion-checkbox</span> <span class="err">[</span><span class="na">checked</span><span class="err">]="</span><span class="na">areaVisible</span><span class="err">()"</span> <span class="err">(</span><span class="na">ionChange</span><span class="err">)="</span><span class="na">areaVisible</span><span class="err">.</span><span class="na">set</span><span class="err">($</span><span class="na">event</span><span class="err">.</span><span class="na">detail</span><span class="err">.</span><span class="na">checked</span><span class="err">)"</span><span class="p">&gt;</span>
+<a id="__codelineno-11-30" name="__codelineno-11-30"></a>        show the area<span class="p">&lt;/</span><span class="nt">ion-checkbox</span><span class="p">&gt;</span>
+<a id="__codelineno-11-31" name="__codelineno-11-31"></a>    <span class="p">&lt;/</span><span class="nt">ion-item</span><span class="p">&gt;</span>
+<a id="__codelineno-11-32" name="__codelineno-11-32"></a>  <span class="p">&lt;/</span><span class="nt">ion-list</span><span class="p">&gt;</span>
+<a id="__codelineno-11-33" name="__codelineno-11-33"></a>
+<a id="__codelineno-11-34" name="__codelineno-11-34"></a>  <span class="cm">&lt;!-- 已移除：这些组件消失，连同它们的局部状态 --&gt;</span>
+<a id="__codelineno-11-35" name="__codelineno-11-35"></a>  @if (areaVisible()) {
+<a id="__codelineno-11-36" name="__codelineno-11-36"></a>    <span class="p">&lt;</span><span class="nt">app-ex20-shop</span> <span class="p">/&gt;</span>
+<a id="__codelineno-11-37" name="__codelineno-11-37"></a>    <span class="p">&lt;</span><span class="nt">app-ex20-cart-summary</span> <span class="p">/&gt;</span>
+<a id="__codelineno-11-38" name="__codelineno-11-38"></a>    <span class="p">&lt;</span><span class="nt">app-ex20-local-counter</span> <span class="na">title</span><span class="o">=</span><span class="s">"Local state"</span> <span class="p">/&gt;</span>
+<a id="__codelineno-11-39" name="__codelineno-11-39"></a>  }
+<a id="__codelineno-11-40" name="__codelineno-11-40"></a>  <span class="cm">&lt;!-- 已隐藏（ion-hide：display none）：组件仍保留在内存中，它的状态得以保留 --&gt;</span>
+<a id="__codelineno-11-41" name="__codelineno-11-41"></a>  <span class="p">&lt;</span><span class="nt">app-ex20-local-counter</span> <span class="na">title</span><span class="o">=</span><span class="s">"Local state, hidden by a CSS class"</span> <span class="err">[</span><span class="na">class</span><span class="err">.</span><span class="na">ion-hide</span><span class="err">]="!</span><span class="na">areaVisible</span><span class="err">()"</span> <span class="p">/&gt;</span>
+<a id="__codelineno-11-42" name="__codelineno-11-42"></a>
+<a id="__codelineno-11-43" name="__codelineno-11-43"></a>  <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>Outside the area, a second summary of the SAME cart (it stays there when the area disappears):<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<a id="__codelineno-11-44" name="__codelineno-11-44"></a>  <span class="p">&lt;</span><span class="nt">app-ex20-cart-summary</span> <span class="p">/&gt;</span>
+<a id="__codelineno-11-45" name="__codelineno-11-45"></a><span class="p">&lt;/</span><span class="nt">ion-content</span><span class="p">&gt;</span>
+</code></pre></div></td></tr></table></div>
+<ul>
+<li>第 33 行（.ts）：偏好设置，一个服务；它在第一次被请求时创建（并读取设备）；</li>
+<li>第 35 行（.ts）：页面的一个局部状态：该区域是否显示？</li>
+<li>第 18–19 行（html）：一个切换开关（<strong><em>[&lt;ion-toggle&gt;]</em></strong>）：<strong><em>[[checked]]</em></strong> 从服务接收值，而 <strong><em>[(ionChange)]</em></strong> 调用服务的操作；</li>
+<li>第 23–26 行（html）：一个取值范围为 12 到 22 的滑块（<strong><em>[&lt;ion-range&gt;]</em></strong>），带有刻度标记（<strong><em>[snaps]</em></strong>、<strong><em>[ticks]</em></strong>）；<strong><em>[+$event.detail.value]</em></strong> 把值转换为数字；</li>
+<li>第 29–30 行（html）：一个复选框，与局部状态相连；</li>
+<li>第 35–39 行（HTML）：被移除（<strong><em>[@if]</em></strong>）；该区域消失——它的组件连同其局部状态一起被销毁（DESTROYED）；</li>
+<li>第 41 行（html）：通过 <strong><em>[ion-hide]</em></strong> 这个来自 <em>[Ionic]</em> 的 CSS 类（<strong><em>[display: none]</em></strong>）隐藏；组件仍保留在内存中：它的状态得以保留。<strong><em>[[class.ion-hide]=&quot;...&quot;]</em></strong> 在表达式为 true 时设置该类。（这在以前是 <strong><em>[Visibility(maintainState: true)]</em></strong> ，来自 <em>[Flutter]</em>。）</li>
+<li>第 44 行（html）：同一购物车的第二个摘要，位于该区域之外。</li>
+</ul>
+<p>购物车和偏好设置在整个应用程序中共享（<strong><em>[providedIn: &#x27;root&#x27;]</em></strong>）。要让服务专属于某个页面（每个页面一个实例，随页面一起销毁），需要把它声明在其组件的 <strong><em>[providers]</em></strong> 中，如示例 21 所示。</p>
+<h3 id="625-运行">6.2.5. <span style="color: #1f4d78">运行</span></h3>
+<p>我们添加两件商品，点击第一个局部计数器两次、第二个一次（左图）；我们移除该区域并切换到深色主题（中图）；然后恢复该区域（右图）：</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000043A00000926F0BF928F.png" width="179" height="387" style="display:inline-block; margin:4px;width:4.733cm;height:10.245cm;" class="odt-zoomable" data-zoom-src="images/100000000000043A00000926F0BF928F.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000043A000009269719B75E.png" width="179" height="387" style="display:inline-block; margin:4px;width:4.733cm;height:10.245cm;" class="odt-zoomable" data-zoom-src="images/100000000000043A000009269719B75E.png" /></td><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top; text-align: left;"><img src="images/100000000000043A00000926EE1E5ED7.png" width="179" height="387" style="display:inline-block; margin:4px;width:4.733cm;height:10.245cm;" class="odt-zoomable" data-zoom-src="images/100000000000043A00000926EE1E5ED7.png" /></td></tr></table>
+
+<p>购物车在该区域被移除后依然存在（如第二个摘要所示）；被移除的计数器重置为零；被隐藏的计数器保留了它的值。停止应用程序并重新启动它（在浏览器中：重新加载页面）：深色主题和文字大小得以保留，而购物车是空的。偏好设置作用于整个应用程序：当你回到菜单时，它也处于深色模式。</p>
+<p>为什么不使用状态管理库？<em>[Angular]</em> 有一些可用的库（<em>[NgRx]</em>、它的变体 <em>[SignalStore]</em>、<em>[NGXS]</em>……），就像 <em>[Flutter]</em> 也有（<em>[provider]</em>、<em>[Riverpod]</em>、<em>[Bloc]</em>……）一样。但依赖注入和信号已经解决了最关键的部分：基于信号的服务就是一个 store，而案例研究将使用它。</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 Anthropic 的 AI <strong>Claude</strong> 应 <strong>Serge Tahé</strong> 的请求编写，根据
+        <em>知识共享署名 – 禁止商业使用 –
+        共享 3.0 未本地化版</em>的条款向公众开放。
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>

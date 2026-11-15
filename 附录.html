@@ -1,0 +1,927 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="[Ionic] 移动框架分步入门">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/zh-ionic-etape-par-etape-oct-2026/%E9%99%84%E5%BD%95.html">
+      
+      
+        <link rel="prev" href="%E7%BB%93%E8%AE%BA.html">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>14. 附录 - [Ionic] 移动框架分步入门</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+      <link rel="stylesheet" href="stylesheets/bidi.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "[Ionic] 移动框架分步入门";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#14-附录" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="[Ionic] 移动框架分步入门" class="md-header__button md-logo" aria-label="[Ionic] 移动框架分步入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            [Ionic] 移动框架分步入门
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              14. 附录
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换至深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="purple"  aria-label="切换至浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换至浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/zh-ionic-etape-par-etape-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="[Ionic] 移动框架分步入门" class="md-nav__button md-logo" aria-label="[Ionic] 移动框架分步入门" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    [Ionic] 移动框架分步入门
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/zh-ionic-etape-par-etape-oct-2026" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    欢迎
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%AE%80%E4%BB%8B.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. 简介
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. 搭建开发环境
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ionic-%E5%85%A5%E9%97%A8.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Ionic 入门
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%BB%84%E4%BB%B6.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. 组件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E8%B7%AF%E7%94%B1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. 路由
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E5%BC%82%E6%AD%A5%E6%93%8D%E4%BD%9C%E4%B8%8E%E5%85%B1%E4%BA%AB%E7%8A%B6%E6%80%81.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. 异步操作与共享状态
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E5%9B%BD%E9%99%85%E5%8C%96.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. 国际化
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rdvmedecins-%E6%9C%8D%E5%8A%A1%E5%99%A8-%E4%B8%80%E4%B8%AA%E9%BB%91%E7%9B%92.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. RdvMedecins 服务器，一个黑盒
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E4%B8%8E%E6%9C%8D%E5%8A%A1%E5%99%A8%E9%80%9A%E4%BF%A1.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. 与服务器通信
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E9%98%B6%E6%AE%B5%E6%80%A7%E7%BB%93%E8%AE%BA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. 阶段性结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E6%A1%88%E4%BE%8B%E7%A0%94%E7%A9%B6-rdvmedecins-%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E7%9A%84-ionic-%E5%AE%A2%E6%88%B7%E7%AB%AF.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    11. 案例研究：RdvMedecins 应用程序的 Ionic 客户端
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E9%83%A8%E7%BD%B2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    12. 部署
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="%E7%BB%93%E8%AE%BA.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    13. 结论
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 附录
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="%E9%99%84%E5%BD%95.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    14. 附录
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#141-安装-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.1. 安装 Node.js
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#142-安装-android-studio-和模拟器" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.2. 安装 Android Studio 和模拟器
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#143-安装-visual-studio-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.3. 安装 Visual Studio Code
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#144-chrome-开发者工具" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.4. Chrome 开发者工具
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#145-使用-laragon-安装-mysql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.5. 使用 Laragon 安装 MySQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#146-安装-curl" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        14.6. 安装 curl
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="14-附录">14. <span style="color: #2e74b5">附录</span></h1>
+<h2 id="141-安装-nodejs">14.1. <span style="color: #2e74b5">安装 Node.js</span></h2>
+<p><em>[Node.js]</em> 可从 <a href="https://nodejs.org/"><u><span style="color: #0563c1">nodejs.org</span></u></a> 下载：选择 LTS（长期支持）版本，撰写本文时为 24 版。<em>[Windows]</em> 安装程序同时会安装 <em>[npm]</em>。<em>[Node.js]</em> 对于 <em>[Ionic]</em> 项目（<em>[Angular CLI]</em> 22 要求 22.22 或更高版本）和 JSON 服务器都是必需的。在控制台中验证安装：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1"></a>node --version
+<a id="__codelineno-0-2" name="__codelineno-0-2"></a>npm --version
+</code></pre></div></td></tr></table></div>
+<p>如果另一个项目需要较旧版本的 <em>[Node.js]</em>，可以用版本管理器安装多个版本并在它们之间切换：<em>[nvm-windows]</em> 用于 <em>[Windows]</em>，<em>[nvm]</em> 用于 <em>[Linux]</em> 和 <em>[macOS]</em> （<strong><em>[nvm install 24]</em></strong>，然后 <strong><em>[nvm use 24]</em></strong>）。</p>
+<p>在 <em>[Windows]</em> 下，<em>[PowerShell]</em> 可能会拒绝运行 <em>[npm]</em> 和 <em>[npx]</em> 命令（“script execution is disabled on this system”）：<strong><em>[Set-ExecutionPolicy -Scope CurrentUser RemoteSigned]</em></strong> 命令可为当前用户启用它。</p>
+<h2 id="142-安装-android-studio-和模拟器">14.2. <span style="color: #2e74b5">安装 Android Studio 和模拟器</span></h2>
+<p><em>[Android Studio]</em> 可从 <a href="https://developer.android.com/studio"><u><span style="color: #0563c1">developer.android.com/studio</span></u></a> 下载。它不是用来编写代码的，而是用来安装 <em>[Android]</em> 的 SDK、提供 JDK 并创建模拟器（详情见“搭建开发环境”一章）：</p>
+<ul>
+<li>首次启动时，向导会安装 <em>[Android]</em> 的 SDK；</li>
+<li>“More Actions”菜单 / “SDK Manager”，“SDK Tools”选项卡：勾选“Android SDK Platform-Tools”（<em>[adb]</em>）、“Android Emulator”和“Android SDK Command-line Tools”；</li>
+<li>创建环境变量 <em>[ANDROID_HOME]</em> （SDK 文件夹）和 <em>[JAVA_HOME]</em>（<em>[Android Studio]</em> 的 <em>[jbr]</em> 子文件夹），<em>[Capacitor]</em> 构建应用程序时需要它们；</li>
+<li>“More Actions”菜单 / “Virtual Device Manager”：使用较新的系统映像创建一部虚拟手机（例如“Pixel”）。点击 ▶ 按钮启动它；<strong><em>[adb devices]</em></strong> 随后会以名称 <em>[emulator-5554]</em> 检测到它。你也可以不打开 <em>[Android Studio]</em> 就启动它：<strong><em>[npx cap run android]</em></strong> 会列出你已创建的模拟器——即使它们处于停止状态——并启动你选择的那个；或者通过命令行，使用 SDK 中的 <em>[emulator]</em> 程序：<strong><em>[emulator -list-avds]</em></strong> 列出模拟器的名称，<strong><em>[emulator -avd &lt;name&gt;]</em></strong> 启动其中一个（在 <em>[Windows]</em> 下：<em>[%ANDROID_HOME%\emulator\emulator.exe]</em>）。</li>
+</ul>
+<p>对于真机：在“设置 / 关于手机”中，连续点按“版本号”七次会出现“开发者选项”，你可以在其中启用“USB 调试”。连接到电脑时，手机会要求你授权这台电脑；<strong><em>[adb devices]</em></strong> 随后就能检测到它。</p>
+<p>由 <em>[Android]</em> 创建的 <em>[Capacitor]</em> 项目（<em>[android/]</em> 文件夹）可通过 <em>[npx cap open android]</em> 在 <strong><em>[Android Studio]</em></strong> 中打开。其中包含 <em>[Logcat]</em> 窗口（应用程序和系统的消息，包括来自 <em>[Capacitor]</em> 插件的消息）和 <em>[Run]</em> 按钮，后者的作用与 <strong><em>[npx cap run android]</em></strong> 相同。</p>
+<h2 id="143-安装-visual-studio-code">14.3. <span style="color: #2e74b5">安装 Visual Studio Code</span></h2>
+<p><em>[Visual Studio Code]</em> 可从 <a href="https://code.visualstudio.com/"><u><span style="color: #0563c1">code.visualstudio.com</span></u></a> 下载。它内置了对 <em>[TypeScript]</em> 和 <em>[JavaScript]</em> 的支持。在“扩展”面板（Ctrl+Shift+X）中安装：</p>
+<ul>
+<li><em>[Angular Language Service]</em> 扩展（来自 <em>[Angular]</em> 团队）：模板中的自动补全和验证（<em>[HTML]</em>——类的属性和方法、组件的输入，以及 <em>[Ionic]</em> 的组件属性）、从模板导航到其类代码（F12），以及在输入时显示模板编译错误；</li>
+<li><em>[Ionic]</em> 扩展（来自 <em>[Ionic]</em> 团队）：一个面板，用于在浏览器或 <em>[Android]</em> 设备上启动应用程序、管理 <em>[Capacitor]</em> 的插件，并通知用户 <em>[Ionic]</em> 和 <em>[Capacitor]</em> 包的更新；</li>
+<li>可选地，安装 <em>[Prettier]</em> 扩展，它会在保存时按照项目的 <em>[.prettierrc]</em> 文件中指定的规则格式化代码。</li>
+</ul>
+<p>通过“File / Open Folder”菜单打开项目（例如 <em>[examples_ionic]</em> 文件夹），并通过“Terminal / New Terminal”菜单打开控制台；你要在那里输入 <strong><em>[npm install]</em></strong>、<strong><em>[npm start]</em></strong>、<strong><em>[npx ng build]</em></strong>、<strong><em>[npx cap run android]</em></strong>……项目中的 <em>[.vscode/launch.json]</em> 文件还允许你通过 F5 启动应用程序：<em>[VS Code]</em> 随后会执行 <strong><em>[npm start]</em></strong>，在 <em>[Chrome]</em> 中打开应用程序，你可以直接在编辑器中的 <em>[TypeScript]</em> 代码里设置断点。</p>
+<h2 id="144-chrome-开发者工具">14.4. <span style="color: #2e74b5">Chrome 开发者工具</span></h2>
+<p><em>[Chrome]</em> 的开发者工具之于 <em>[Ionic]</em> 应用，就如同 <em>[Flutter DevTools]</em> 之于 <em>[Flutter]</em> 应用。你可以用 F12（或 Ctrl+Shift+I）打开它们。其中最有用的选项卡有：</p>
+<ul>
+<li>设备模拟栏（Ctrl-Shift-M）：应用程序缩放到手机的尺寸（从列表中选择一款型号，或指定尺寸），并带有触摸事件。你就是这样先开发应用程序，然后再切换到 <em>[Android]</em> 的；</li>
+<li>“Elements”：页面的元素树，以及每个元素的样式（可以实时编辑）。左上角的箭头图标可以让你点击页面元素，在树中定位它。在那里你可以看到标签 <strong><em>[&lt;ion-...&gt;]</em></strong> 以及每个标签内部的“shadow DOM”：构成它的 HTML 元素。这个工具回答的问题是：“为什么这个元素不在它应该在的位置？”；</li>
+<li>“Console”：应用程序的消息（<strong><em>[console.log()]</em></strong>）和错误，以及它们产生所在的文件和行（<em>[TypeScript]）</em>；</li>
+<li>“Sources”：应用程序代码（<em>[TypeScript]</em>）（借助 <em>[development]</em> 配置中的“source map”），可以在其中设置断点；</li>
+<li>“Network”：应用程序的（HTTP）请求及其请求头和请求体：在这里（在浏览器中）可以看到令牌 Cookie 的发送和接收；</li>
+<li>“Application”：页面的存储（<em>[localStorage]</em>，在浏览器中 <em>[@capacitor/preferences]</em> 扩展把它的值存放在这里）及其 Cookie。</li>
+</ul>
+<p><em>[Angular DevTools]</em> 扩展（从 <em>[Chrome Web Store]</em> 安装）会添加一个“Angular”选项卡：屏幕的 <em>[Angular]</em> 组件树，以及每个组件的输入、信号和属性，可以实时修改；其“Profiler”选项卡会显示每个事件之后 <em>[Angular]</em> 更新了什么，以及花了多长时间。</p>
+<p>同样的工具也可以调试安装在模拟器或手机上的应用程序。在电脑上的 <em>[Chrome]</em> 中，打开地址 <strong><em>[chrome://inspect]</em></strong>：该页面会列出通过 <em>[adb]</em> 连接的设备，以及每个设备上当前正在运行且允许调试的应用程序的 WebView（这适用于以“debug”模式构建的 <em>[Capacitor]</em> 应用，例如通过 <strong><em>[npx cap run android]</em></strong> 运行的）。“Inspect”链接会打开一个与应用程序的 WebView 相连的开发者工具窗口，手机的屏幕显示在左侧：你会在这里找到“Elements”、“Console”、“Sources”、“Network”等选项卡……由于 <em>[CapacitorHttp]</em> 发出的请求经过 <em>[Android]</em> 的原生代码，并非所有请求都会出现在“Network”选项卡中：<em>[Logcat]</em> 窗口（位于 <em>[Android Studio]</em> 中）会显示它们。</p>
+<h2 id="145-使用-laragon-安装-mysql">14.5. <span style="color: #2e74b5">使用 Laragon 安装 MySQL</span></h2>
+<p>JSON 服务器需要 <em>[MySQL]</em> （或 <em>[MariaDB]</em>）。<em>[Laragon]</em> （<a href="https://laragon.org/"><u><span style="color: #0563c1">laragon.org</span></u></a>）会在 <em>[Windows]</em> 下安装其中一个，开箱即用，并带有 <em>[HeidiSQL]</em> 管理工具。安装之后：</p>
+<ul>
+<li>“Start All”按钮会在 3306 端口启动 <em>[MySQL]</em> 服务器；</li>
+<li>用户 <em>[root]</em> 没有密码：这是服务器 <em>[.env.example]</em> 文件中的默认值；</li>
+<li>在 <em>[HeidiSQL]</em> 中（“Database”按钮），通过“File / Run SQL”菜单项运行 <em>[database/dbrdvmedecins2.sql]</em> 脚本。</li>
+</ul>
+<p>在 <em>[Linux]</em> 或 <em>[macOS]</em> 上，使用系统的包管理器安装 <em>[MySQL]</em> 或 <em>[MariaDB]</em> ，并使用命令行客户端运行该脚本：<strong><em>[mysql -u root -p &lt; database/dbrdvmedecins2.sql]</em></strong>。</p>
+<h2 id="146-安装-curl">14.6. <span style="color: #2e74b5">安装 curl</span></h2>
+<p><em>[curl]</em> 已包含在 <em>[Windows]</em> 10 和 11 版本、<em>[macOS]</em> 以及大多数 <em>[Linux]</em> 发行版中。检查其版本：</p>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1"></a>curl --version
+</code></pre></div></td></tr></table></div>
+<p>本文档中使用的选项 <em>[--json]</em> 自 7.82 版（2022 年）起可用。如果你使用的是较旧的版本，请把 <strong><em>[--json @file]</em></strong> 替换为 <strong><em>[-H &quot;Content-Type: application/json&quot; -d @file]</em></strong>，或者从 <a href="https://curl.se/"><u><span style="color: #0563c1">curl.se</span></u></a> 开始安装较新的版本。</p>
+<p>在 <em>[PowerShell]</em> 中，必须输入 <em>[curl.exe]</em>，而不是 <em>[curl]</em>：在 <em>[PowerShell]</em> 中，<em>[curl]</em> 是另一个命令（<em>[Invoke-WebRequest]</em>）的别名，该命令不包含 <em>[curl]</em> 的那些选项。命令提示符（<em>[cmd]</em>）则没有这个问题。</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://stahe.github.io" target="_blank">
+          https://stahe.github.io
+        </a>
+        <br>
+        本教程由 Anthropic 的 AI <strong>Claude</strong> 应 <strong>Serge Tahé</strong> 的请求编写，根据
+        <em>知识共享署名 – 禁止商业使用 –
+        共享 3.0 未本地化版</em>的条款向公众开放。
+
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
